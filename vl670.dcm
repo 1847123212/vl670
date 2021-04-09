@@ -1,0 +1,66 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP +5V_SW
+D Power symbol creates a global label with name "+5V_SW"
+K power-flag
+$ENDCMP
+#
+$CMP 25LCxxx
+D SPI Serial EEPROM, DIP-8/SOIC-8/TSSOP-8
+K EEPROM memory SPI serial
+F http://ww1.microchip.com/downloads/en/DeviceDoc/21832H.pdf
+$ENDCMP
+#
+$CMP AT25xxx
+D Microchip SPI Serial EEPROM, DIP-8/SOIC-8/TSSOP-8
+K EEPROM memory SPI serial
+F http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-8707-SEEPROM-AT25010B-020B-040B-Datasheet.pdf
+$ENDCMP
+#
+$CMP BR25Sxxx
+D ROHM Semiconductor SPI Serial EEPROM, DIP-8/SOIC-8/TSSOP-8
+K EEPROM memory SPI serial
+F http://www.rohm.com/web/global/products/-/product/BR25G128F-3
+$ENDCMP
+#
+$CMP CAT250xxx
+D ON Semiconductor SPI Serial EEPROM, DIP-8/SOIC-8/TSSOP-8
+K EEPROM memory SPI serial
+F http://www.onsemi.com/PowerSolutions/product.do?id=CAT25040
+$ENDCMP
+#
+$CMP ESD7104
+D Low Capacitance ESD Protection Diodefor High Speed Data Line, 2 Channels, UDFN-10/WDFNW-10
+K ESD protection suppression transient USB HDMI eSATA DisplayPort Thunderbolt
+F https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF
+$ENDCMP
+#
+$CMP HD3SS3220
+D USB Type-C DRP Port Controller with SuperSpeed 2:1 MUX, Texas Instruments, VQFN-30
+K usb usb-c type-c mux
+$ENDCMP
+#
+$CMP TPS2061C
+D 1.0A, 4.5-5.5V USB power switch, active-low enable, output discharge
+K 1-chanel power-distribution USB
+F https://www.ti.com/lit/gpn/tps2061c
+$ENDCMP
+#
+$CMP TS3A24157
+D Dual SPDT 0.65Ω Bidirectional Analog Switch, VSSOP-10
+K switch analog SPDT
+F http://www.ti.com/lit/ds/symlink/ts3a24159.pdf
+$ENDCMP
+#
+$CMP USB_C_Receptacle
+D USB Full-Featured Type-C Receptacle connector
+K usb universal serial bus type-C full-featured
+F https://www.usb.org/sites/default/files/documents/usb_type-c.zip
+$ENDCMP
+#
+$CMP VL670
+D USB 3 Super Speed to USB 2 High Speed Transaction Translator, VIA Labs, QFN-48
+K usb
+$ENDCMP
+#
+#End Doc Library

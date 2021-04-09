@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name vl670)(type Legacy)(uri ${KIPRJMOD}/vl670.lib)(options "")(descr ""))
+  (lib (name hisolator)(type Legacy)(uri /home/user/QubesIncoming/crypto/pcb/hisolator/hisolator/hisolator.lib)(options "")(descr ""))
+  (lib (name hisolator-rescue)(type Legacy)(uri /home/user/QubesIncoming/crypto/pcb/hisolator/hisolator/hisolator-rescue.lib)(options "")(descr ""))
+)

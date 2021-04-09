@@ -1,0 +1,525 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text HLabel 2050 2850 0    79   Input ~ 0
+CC1
+Text HLabel 2050 3050 0    79   Input ~ 0
+CC2
+Text HLabel 2050 2450 0    79   Input ~ 0
+D1-
+Text HLabel 2050 2650 0    79   Input ~ 0
+D1+
+Text HLabel 2050 3250 0    79   Input ~ 0
+RX1-
+Text HLabel 2050 4050 0    79   Input ~ 0
+TX1-
+Text HLabel 2050 4250 0    79   Input ~ 0
+TX1+
+Text HLabel 2050 3650 0    79   Input ~ 0
+RX2-
+Text HLabel 2050 3850 0    79   Input ~ 0
+RX2+
+Text HLabel 2050 4450 0    79   Input ~ 0
+TX2-
+Text HLabel 2050 4650 0    79   Input ~ 0
+TX2+
+$Comp
+L power:GND #PWR?
+U 1 1 604F285B
+P 3850 5600
+AR Path="/604F285B" Ref="#PWR?"  Part="1" 
+AR Path="/60085564/604F285B" Ref="#PWR0108"  Part="1" 
+F 0 "#PWR0108" H 3850 5350 50  0001 C CNN
+F 1 "GND" H 3850 5450 50  0000 C CNN
+F 2 "" H 3850 5600 50  0001 C CNN
+F 3 "" H 3850 5600 50  0001 C CNN
+	1    3850 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 5550 3850 5600
+$Comp
+L vl670:ESD7104 D?
+U 1 1 604F2862
+P 3850 5250
+AR Path="/604F2862" Ref="D?"  Part="1" 
+AR Path="/60085564/604F2862" Ref="D1"  Part="1" 
+F 0 "D1" H 4100 4850 50  0000 L CNN
+F 1 "ESD7104" H 4000 4750 50  0000 L CNN
+F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 3850 4900 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 3850 5200 50  0001 C CNN
+	1    3850 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60535E89
+P 4850 5600
+AR Path="/60535E89" Ref="#PWR?"  Part="1" 
+AR Path="/60085564/60535E89" Ref="#PWR0120"  Part="1" 
+F 0 "#PWR0120" H 4850 5350 50  0001 C CNN
+F 1 "GND" H 4850 5450 50  0000 C CNN
+F 2 "" H 4850 5600 50  0001 C CNN
+F 3 "" H 4850 5600 50  0001 C CNN
+	1    4850 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 5550 4850 5600
+$Comp
+L vl670:ESD7104 D?
+U 1 1 60535F6E
+P 4850 5250
+AR Path="/60535F6E" Ref="D?"  Part="1" 
+AR Path="/60085564/60535F6E" Ref="D4"  Part="1" 
+F 0 "D4" H 5100 4850 50  0000 L CNN
+F 1 "ESD7104" H 5000 4750 50  0000 L CNN
+F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 4850 4900 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 4850 5200 50  0001 C CNN
+	1    4850 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 3250 6350 3400
+Wire Wire Line
+	6350 3450 6350 3500
+Wire Wire Line
+	6350 3400 6700 3400
+Wire Wire Line
+	6350 3500 6700 3500
+Wire Wire Line
+	6350 3650 6350 3600
+Wire Wire Line
+	6350 3600 6700 3600
+Wire Wire Line
+	6350 3850 6350 3700
+Wire Wire Line
+	6350 3700 6700 3700
+Text HLabel 2050 3450 0    79   Input ~ 0
+RX1+
+Wire Wire Line
+	3950 4950 3950 4250
+Wire Wire Line
+	4050 4950 4050 4050
+Wire Wire Line
+	6350 3050 6350 3000
+Wire Wire Line
+	6350 3000 6700 3000
+Wire Wire Line
+	6350 2850 6350 2900
+Wire Wire Line
+	6350 2900 6700 2900
+Wire Wire Line
+	5850 2600 6050 2600
+$Comp
+L Device:R_US R12
+U 1 1 5FD0592B
+P 6200 2600
+F 0 "R12" V 6150 2350 50  0000 C CNN
+F 1 "900k" V 6150 2800 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 6240 2590 50  0001 C CNN
+F 3 "~" H 6200 2600 50  0001 C CNN
+F 4 "1%" V 6100 2600 50  0000 C CNN "Tolerance"
+	1    6200 2600
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+5V #PWR0148
+U 1 1 5FD04D2C
+P 5850 2600
+F 0 "#PWR0148" H 5850 2450 50  0001 C CNN
+F 1 "+5V" V 5865 2728 50  0000 L CNN
+F 2 "" H 5850 2600 50  0001 C CNN
+F 3 "" H 5850 2600 50  0001 C CNN
+	1    5850 2600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6350 2600 6700 2600
+Wire Wire Line
+	5850 4950 6050 4950
+$Comp
+L Device:R_US R13
+U 1 1 5FD29CF3
+P 6200 4950
+F 0 "R13" V 6150 4700 50  0000 C CNN
+F 1 "500k" V 6150 5150 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 6240 4940 50  0001 C CNN
+F 3 "~" H 6200 4950 50  0001 C CNN
+	1    6200 4950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6350 4950 6700 4950
+Wire Wire Line
+	5850 5050 6700 5050
+NoConn ~ 6700 5150
+$Comp
+L power:GND #PWR0150
+U 1 1 5FD57DCE
+P 5850 5050
+F 0 "#PWR0150" H 5850 4800 50  0001 C CNN
+F 1 "GND" V 5855 4922 50  0000 R CNN
+F 2 "" H 5850 5050 50  0001 C CNN
+F 3 "" H 5850 5050 50  0001 C CNN
+	1    5850 5050
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0151
+U 1 1 5FD75070
+P 5850 5250
+F 0 "#PWR0151" H 5850 5000 50  0001 C CNN
+F 1 "GND" V 5855 5122 50  0000 R CNN
+F 2 "" H 5850 5250 50  0001 C CNN
+F 3 "" H 5850 5250 50  0001 C CNN
+	1    5850 5250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5850 5250 6700 5250
+Wire Wire Line
+	5850 5350 6700 5350
+$Comp
+L power:GND #PWR0152
+U 1 1 5FD7BAD0
+P 5850 5350
+F 0 "#PWR0152" H 5850 5100 50  0001 C CNN
+F 1 "GND" V 5855 5222 50  0000 R CNN
+F 2 "" H 5850 5350 50  0001 C CNN
+F 3 "" H 5850 5350 50  0001 C CNN
+	1    5850 5350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8450 5150 8100 5150
+$Comp
+L Device:R_US R14
+U 1 1 5FD868A6
+P 8600 5150
+F 0 "R14" V 8550 5400 50  0000 C CNN
+F 1 "200k" V 8550 4900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 8640 5140 50  0001 C CNN
+F 3 "~" H 8600 5150 50  0001 C CNN
+	1    8600 5150
+	0    -1   1    0   
+$EndComp
+NoConn ~ 8100 4950
+NoConn ~ 8100 5050
+NoConn ~ 8100 5350
+Wire Wire Line
+	8100 3500 9150 3500
+Wire Wire Line
+	8100 3600 9150 3600
+Wire Wire Line
+	8100 4300 9150 4300
+Wire Wire Line
+	8100 4400 9150 4400
+Text HLabel 9150 1100 2    79   Output ~ 0
+D-
+Text HLabel 9150 1350 2    79   Output ~ 0
+D+
+Text HLabel 9150 3500 2    79   Output ~ 0
+RX-
+Text HLabel 9150 3600 2    79   Output ~ 0
+RX+
+Text HLabel 9150 4300 2    79   Output ~ 0
+TX-
+Text HLabel 9150 4400 2    79   Output ~ 0
+TX+
+$Comp
+L power:GND #PWR0154
+U 1 1 5FE3A2B1
+P 7400 6000
+F 0 "#PWR0154" H 7400 5750 50  0001 C CNN
+F 1 "GND" H 7405 5827 50  0000 C CNN
+F 2 "" H 7400 6000 50  0001 C CNN
+F 3 "" H 7400 6000 50  0001 C CNN
+	1    7400 6000
+	1    0    0    -1  
+$EndComp
+Connection ~ 7400 6000
+$Comp
+L power:+3V3 #PWR0155
+U 1 1 5FDBF1B1
+P 7450 1950
+F 0 "#PWR0155" H 7450 1800 50  0001 C CNN
+F 1 "+3V3" H 7550 2100 50  0000 C CNN
+F 2 "" H 7450 1950 50  0001 C CNN
+F 3 "" H 7450 1950 50  0001 C CNN
+	1    7450 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0156
+U 1 1 5FDBECDF
+P 7350 1950
+F 0 "#PWR0156" H 7350 1800 50  0001 C CNN
+F 1 "+5V" H 7250 2100 50  0000 C CNN
+F 2 "" H 7350 1950 50  0001 C CNN
+F 3 "" H 7350 1950 50  0001 C CNN
+	1    7350 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7450 1950 7450 2150
+Wire Wire Line
+	7350 1950 7350 2150
+NoConn ~ 8100 5250
+NoConn ~ 8100 4850
+Connection ~ 3950 4250
+Wire Wire Line
+	3950 4250 6350 4250
+Connection ~ 4050 4050
+Wire Wire Line
+	4050 4050 6350 4050
+Wire Wire Line
+	2050 3650 4650 3650
+Wire Wire Line
+	2050 4250 3950 4250
+Wire Wire Line
+	2050 4050 4050 4050
+$Comp
+L vl670:ESD7104 D?
+U 1 1 5FFD97ED
+P 2850 5250
+AR Path="/5FFD97ED" Ref="D?"  Part="1" 
+AR Path="/60085564/5FFD97ED" Ref="D5"  Part="1" 
+F 0 "D5" H 3100 4850 50  0000 L CNN
+F 1 "ESD7104" H 3000 4750 50  0000 L CNN
+F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 2850 4900 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 2850 5200 50  0001 C CNN
+	1    2850 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6000EE66
+P 2850 5600
+AR Path="/6000EE66" Ref="#PWR?"  Part="1" 
+AR Path="/60085564/6000EE66" Ref="#PWR0107"  Part="1" 
+F 0 "#PWR0107" H 2850 5350 50  0001 C CNN
+F 1 "GND" H 2850 5450 50  0000 C CNN
+F 2 "" H 2850 5600 50  0001 C CNN
+F 3 "" H 2850 5600 50  0001 C CNN
+	1    2850 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 5550 2850 5600
+Wire Wire Line
+	4800 2650 4800 1350
+Wire Wire Line
+	4800 1350 9150 1350
+Wire Wire Line
+	4650 2450 4650 1100
+Wire Wire Line
+	4650 1100 9150 1100
+$Comp
+L vl670:HD3SS3220 U1
+U 1 1 60228179
+P 7400 3850
+F 0 "U1" H 7800 5650 50  0000 C CNN
+F 1 "HD3SS3220" H 7800 5550 50  0000 C CNN
+F 2 "vl670:Texas_VQFN-RNH-30" H 8300 5500 50  0001 C CNN
+F 3 "" H 8300 5500 50  0001 C CNN
+	1    7400 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2050 3250 3650 3250
+Wire Wire Line
+	2050 3450 3750 3450
+Wire Wire Line
+	3650 4950 3650 3250
+Connection ~ 3650 3250
+Wire Wire Line
+	3650 3250 6350 3250
+Wire Wire Line
+	3750 4950 3750 3450
+Connection ~ 3750 3450
+Wire Wire Line
+	3750 3450 6350 3450
+Wire Wire Line
+	2050 4450 5050 4450
+Wire Wire Line
+	2050 4650 4950 4650
+Wire Wire Line
+	5050 4950 5050 4450
+Connection ~ 5050 4450
+Wire Wire Line
+	5050 4450 6350 4450
+Wire Wire Line
+	4950 4950 4950 4650
+Connection ~ 4950 4650
+Wire Wire Line
+	4950 4650 6350 4650
+Wire Wire Line
+	2050 3850 4750 3850
+Wire Wire Line
+	4650 4950 4650 3650
+Connection ~ 4650 3650
+Wire Wire Line
+	4650 3650 6350 3650
+Wire Wire Line
+	4750 4950 4750 3850
+Connection ~ 4750 3850
+Wire Wire Line
+	4750 3850 6350 3850
+Wire Wire Line
+	6350 4250 6700 4200
+Wire Wire Line
+	6350 4050 6700 4300
+Wire Wire Line
+	6350 4650 6700 4400
+Wire Wire Line
+	6350 4450 6700 4500
+Wire Wire Line
+	2050 2450 3050 2450
+Wire Wire Line
+	2050 2650 2950 2650
+Wire Wire Line
+	2050 3050 2750 3050
+Wire Wire Line
+	2050 2850 2650 2850
+Wire Wire Line
+	2650 4950 2650 2850
+Connection ~ 2650 2850
+Wire Wire Line
+	2750 4950 2750 3050
+Connection ~ 2750 3050
+Wire Wire Line
+	2650 2850 6350 2850
+Wire Wire Line
+	2750 3050 6350 3050
+Wire Wire Line
+	2950 4950 2950 2650
+Connection ~ 2950 2650
+Wire Wire Line
+	2950 2650 4800 2650
+Wire Wire Line
+	3050 4950 3050 2450
+Connection ~ 3050 2450
+Wire Wire Line
+	3050 2450 4650 2450
+Wire Wire Line
+	7400 5850 7400 6000
+Wire Wire Line
+	7500 6000 7500 5850
+Wire Wire Line
+	7400 6000 7500 6000
+Wire Wire Line
+	7300 6000 7300 5850
+Wire Wire Line
+	7300 6000 7400 6000
+$Comp
+L power:+3V3 #PWR0157
+U 1 1 5FE7241C
+P 8900 1950
+F 0 "#PWR0157" H 8900 1800 50  0001 C CNN
+F 1 "+3V3" H 8915 2123 50  0000 C CNN
+F 2 "" H 8900 1950 50  0001 C CNN
+F 3 "" H 8900 1950 50  0001 C CNN
+	1    8900 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C25
+U 1 1 5FE72F82
+P 8900 2250
+F 0 "C25" H 9015 2296 50  0000 L CNN
+F 1 "1uF" H 9015 2205 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 8938 2100 50  0001 C CNN
+F 3 "~" H 8900 2250 50  0001 C CNN
+	1    8900 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8900 1950 8900 2100
+$Comp
+L power:GND #PWR0158
+U 1 1 5FE75843
+P 8900 2600
+F 0 "#PWR0158" H 8900 2350 50  0001 C CNN
+F 1 "GND" H 8905 2427 50  0000 C CNN
+F 2 "" H 8900 2600 50  0001 C CNN
+F 3 "" H 8900 2600 50  0001 C CNN
+	1    8900 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8900 2400 8900 2600
+$Comp
+L Device:C C12
+U 1 1 5FE7CBDA
+P 8450 2250
+F 0 "C12" H 8565 2296 50  0000 L CNN
+F 1 "1uF" H 8565 2205 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 8488 2100 50  0001 C CNN
+F 3 "~" H 8450 2250 50  0001 C CNN
+	1    8450 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8450 1950 8450 2100
+$Comp
+L power:GND #PWR0159
+U 1 1 5FE7CBE5
+P 8450 2600
+F 0 "#PWR0159" H 8450 2350 50  0001 C CNN
+F 1 "GND" H 8455 2427 50  0000 C CNN
+F 2 "" H 8450 2600 50  0001 C CNN
+F 3 "" H 8450 2600 50  0001 C CNN
+	1    8450 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8450 2400 8450 2600
+$Comp
+L power:+5V #PWR0160
+U 1 1 5FE9090F
+P 8450 1950
+F 0 "#PWR0160" H 8450 1800 50  0001 C CNN
+F 1 "+5V" H 8465 2123 50  0000 C CNN
+F 2 "" H 8450 1950 50  0001 C CNN
+F 3 "" H 8450 1950 50  0001 C CNN
+	1    8450 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0153
+U 1 1 60A4C061
+P 9150 5150
+F 0 "#PWR0153" H 9150 5000 50  0001 C CNN
+F 1 "+3V3" V 9150 5300 50  0000 L CNN
+F 2 "" H 9150 5150 50  0001 C CNN
+F 3 "" H 9150 5150 50  0001 C CNN
+	1    9150 5150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8750 5150 9150 5150
+$Comp
+L power:+5V #PWR0149
+U 1 1 60A82DCB
+P 5850 4950
+F 0 "#PWR0149" H 5850 4800 50  0001 C CNN
+F 1 "+5V" V 5850 5100 50  0000 L CNN
+F 2 "" H 5850 4950 50  0001 C CNN
+F 3 "" H 5850 4950 50  0001 C CNN
+	1    5850 4950
+	0    -1   -1   0   
+$EndComp
+$EndSCHEMATC
