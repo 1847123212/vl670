@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 3
+Sheet 3 4
 Title ""
 Date ""
 Rev ""
@@ -61,7 +61,7 @@ P 8400 2250
 AR Path="/61456C7C" Ref="R?"  Part="1" 
 AR Path="/60B512DF/61456C7C" Ref="R10"  Part="1" 
 F 0 "R10" H 8200 2300 50  0000 L CNN
-F 1 "10K" H 8150 2200 50  0000 L CNN
+F 1 "10k" H 8200 2200 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 8440 2240 50  0001 C CNN
 F 3 "~" H 8400 2250 50  0001 C CNN
 	1    8400 2250
@@ -105,8 +105,8 @@ U 1 1 61456C9A
 P 9300 2800
 AR Path="/61456C9A" Ref="C?"  Part="1" 
 AR Path="/60B512DF/61456C9A" Ref="C22"  Part="1" 
-F 0 "C22" H 9050 2850 50  0000 L CNN
-F 1 "1uF" H 9050 2750 50  0000 L CNN
+F 0 "C22" H 9000 2850 50  0000 L CNN
+F 1 "470nF" H 8950 2750 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 9338 2650 50  0001 C CNN
 F 3 "~" H 9300 2800 50  0001 C CNN
 	1    9300 2800
@@ -231,7 +231,7 @@ P 8850 2250
 AR Path="/607E550A" Ref="R?"  Part="1" 
 AR Path="/60B512DF/607E550A" Ref="R11"  Part="1" 
 F 0 "R11" H 8650 2300 50  0000 L CNN
-F 1 "10K" H 8600 2200 50  0000 L CNN
+F 1 "10k" H 8650 2200 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 8890 2240 50  0001 C CNN
 F 3 "~" H 8850 2250 50  0001 C CNN
 	1    8850 2250
@@ -316,8 +316,8 @@ U 1 1 607CC437
 P 8650 5100
 AR Path="/607CC437" Ref="C?"  Part="1" 
 AR Path="/60B512DF/607CC437" Ref="C26"  Part="1" 
-F 0 "C26" H 8400 5150 50  0000 L CNN
-F 1 "1uF" H 8400 5050 50  0000 L CNN
+F 0 "C26" H 8350 5150 50  0000 L CNN
+F 1 "470nF" H 8300 5050 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 8688 4950 50  0001 C CNN
 F 3 "~" H 8650 5100 50  0001 C CNN
 	1    8650 5100
@@ -335,78 +335,10 @@ Wire Wire Line
 Wire Wire Line
 	8650 4600 8650 4950
 Wire Wire Line
-	4650 1550 4650 2100
-$Comp
-L 4xxx:4016 U3
-U 2 1 60730C23
-P 5150 2400
-F 0 "U3" H 5400 2550 50  0000 C CNN
-F 1 "4016" H 5400 2300 50  0001 C CNN
-F 2 "Package_SO:TSSOP-14_4.4x5mm_P0.65mm" H 5150 2400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/cd4016b.pdf" H 5150 2400 50  0001 C CNN
-	2    5150 2400
-	1    0    0    -1  
-$EndComp
-$Comp
-L 4xxx:4016 U3
-U 3 1 607337D1
-P 5150 2950
-F 0 "U3" H 5400 3100 50  0000 C CNN
-F 1 "4016" H 5400 2850 50  0001 C CNN
-F 2 "Package_SO:TSSOP-14_4.4x5mm_P0.65mm" H 5150 2950 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/cd4016b.pdf" H 5150 2950 50  0001 C CNN
-	3    5150 2950
-	1    0    0    -1  
-$EndComp
-$Comp
-L 4xxx:4016 U3
-U 4 1 6073A143
-P 5150 3500
-F 0 "U3" H 5400 3650 50  0000 C CNN
-F 1 "4016" H 5400 3400 50  0001 C CNN
-F 2 "Package_SO:TSSOP-14_4.4x5mm_P0.65mm" H 5150 3500 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/cd4016b.pdf" H 5150 3500 50  0001 C CNN
-	4    5150 3500
-	1    0    0    -1  
-$EndComp
-$Comp
-L 4xxx:4016 U3
-U 1 1 6071BDDF
-P 5150 1850
-F 0 "U3" H 5400 2100 50  0000 C CNN
-F 1 "4016" H 5400 2000 50  0000 C CNN
-F 2 "Package_SO:TSSOP-14_4.4x5mm_P0.65mm" H 5150 1850 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/cd4016b.pdf" H 5150 1850 50  0001 C CNN
-	1    5150 1850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5150 2100 4650 2100
-Connection ~ 4650 2100
-Wire Wire Line
-	4650 2100 4650 2650
-Wire Wire Line
-	5150 2650 4650 2650
-Connection ~ 4650 2650
-Wire Wire Line
-	4650 2650 4650 3200
-Wire Wire Line
 	5150 3200 4650 3200
 Connection ~ 4650 3200
 Wire Wire Line
 	4650 3200 4650 4050
-$Comp
-L 4xxx:4016 U3
-U 5 1 608470A6
-P 7900 5100
-F 0 "U3" H 7600 5600 50  0000 C CNN
-F 1 "4016" H 7600 5500 50  0000 C CNN
-F 2 "Package_SO:TSSOP-14_4.4x5mm_P0.65mm" H 7900 5100 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/cd4016b.pdf" H 7900 5100 50  0001 C CNN
-	5    7900 5100
-	1    0    0    -1  
-$EndComp
-Connection ~ 7900 4600
 Wire Wire Line
 	3800 4050 4650 4050
 Wire Wire Line
@@ -417,4 +349,138 @@ Wire Wire Line
 	3800 5700 6100 5700
 Wire Wire Line
 	3800 6250 6350 6250
+$Comp
+L vl670:74LVC2G66 U3
+U 2 1 61B0808D
+P 5150 2400
+F 0 "U3" H 5400 2550 50  0000 C CNN
+F 1 "74LVC2G66" H 5450 2550 50  0001 C CNN
+F 2 "Package_SO:VSSOP-8_2.4x2.1mm_P0.5mm" H 4300 3150 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74LVC2G66.pdf" H 4300 3150 50  0001 C CNN
+	2    5150 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L vl670:74LVC2G66 U5
+U 1 1 61B0C3AB
+P 5150 3500
+F 0 "U5" H 5400 3650 50  0000 C CNN
+F 1 "74LVC2G66" H 5450 3650 50  0001 C CNN
+F 2 "Package_SO:VSSOP-8_2.4x2.1mm_P0.5mm" H 4300 4250 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74LVC2G66.pdf" H 4300 4250 50  0001 C CNN
+	1    5150 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L vl670:74LVC2G66 U5
+U 2 1 61B0CBEB
+P 5150 2950
+F 0 "U5" H 5400 3100 50  0000 C CNN
+F 1 "74LVC2G66" H 5450 3100 50  0001 C CNN
+F 2 "Package_SO:VSSOP-8_2.4x2.1mm_P0.5mm" H 4300 3700 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74LVC2G66.pdf" H 4300 3700 50  0001 C CNN
+	2    5150 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L vl670:74LVC2G66 U3
+U 3 1 61B0E5B5
+P 7900 5100
+F 0 "U3" H 7550 5500 50  0000 L CNN
+F 1 "74LVC2G66" H 8000 5500 50  0000 L CNN
+F 2 "Package_SO:VSSOP-8_2.4x2.1mm_P0.5mm" H 7050 5850 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74LVC2G66.pdf" H 7050 5850 50  0001 C CNN
+	3    7900 5100
+	1    0    0    -1  
+$EndComp
+Connection ~ 7900 4600
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61B1087D
+P 9350 4550
+AR Path="/61B1087D" Ref="#PWR?"  Part="1" 
+AR Path="/60B512DF/61B1087D" Ref="#PWR0171"  Part="1" 
+F 0 "#PWR0171" H 9350 4400 50  0001 C CNN
+F 1 "+3V3" H 9365 4723 50  0000 C CNN
+F 2 "" H 9350 4550 50  0001 C CNN
+F 3 "" H 9350 4550 50  0001 C CNN
+	1    9350 4550
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9350 4550 9350 4600
+$Comp
+L power:GND #PWR?
+U 1 1 61B1095C
+P 9350 5750
+AR Path="/61B1095C" Ref="#PWR?"  Part="1" 
+AR Path="/60B512DF/61B1095C" Ref="#PWR0172"  Part="1" 
+F 0 "#PWR0172" H 9350 5500 50  0001 C CNN
+F 1 "GND" H 9355 5577 50  0000 C CNN
+F 2 "" H 9350 5750 50  0001 C CNN
+F 3 "" H 9350 5750 50  0001 C CNN
+	1    9350 5750
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9350 5600 9350 5650
+$Comp
+L Device:C C?
+U 1 1 61B10967
+P 10100 5100
+AR Path="/61B10967" Ref="C?"  Part="1" 
+AR Path="/60B512DF/61B10967" Ref="C9"  Part="1" 
+F 0 "C9" H 9850 5150 50  0000 L CNN
+F 1 "470nF" H 9750 5050 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 10138 4950 50  0001 C CNN
+F 3 "~" H 10100 5100 50  0001 C CNN
+	1    10100 5100
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10100 5250 10100 5650
+Wire Wire Line
+	9350 5650 10100 5650
+Connection ~ 9350 5650
+Wire Wire Line
+	9350 5650 9350 5750
+Wire Wire Line
+	9350 4600 10100 4600
+Wire Wire Line
+	10100 4600 10100 4950
+$Comp
+L vl670:74LVC2G66 U5
+U 3 1 61B10977
+P 9350 5100
+F 0 "U5" H 9000 5500 50  0000 L CNN
+F 1 "74LVC2G66" H 9450 5500 50  0000 L CNN
+F 2 "Package_SO:VSSOP-8_2.4x2.1mm_P0.5mm" H 8500 5850 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74LVC2G66.pdf" H 8500 5850 50  0001 C CNN
+	3    9350 5100
+	1    0    0    -1  
+$EndComp
+Connection ~ 9350 4600
+Wire Wire Line
+	4650 2650 4650 3200
+Connection ~ 4650 2650
+Wire Wire Line
+	5150 2650 4650 2650
+$Comp
+L vl670:74LVC2G66 U3
+U 1 1 61B0487E
+P 5150 1850
+F 0 "U3" H 5400 2100 50  0000 C CNN
+F 1 "74LVC2G66" H 5450 2000 50  0000 C CNN
+F 2 "Package_SO:VSSOP-8_2.4x2.1mm_P0.5mm" H 4300 2600 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74LVC2G66.pdf" H 4300 2600 50  0001 C CNN
+	1    5150 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4650 1550 4650 2100
+Wire Wire Line
+	4650 2100 5150 2100
+Connection ~ 4650 2100
+Wire Wire Line
+	4650 2100 4650 2650
 $EndSCHEMATC

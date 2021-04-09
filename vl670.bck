@@ -11,6 +11,12 @@ K EEPROM memory SPI serial
 F http://ww1.microchip.com/downloads/en/DeviceDoc/21832H.pdf
 $ENDCMP
 #
+$CMP 74LVC2G66
+D Dual Analog Switches
+K CMOS SWITCH
+F https://assets.nexperia.com/documents/data-sheet/74LVC2G66.pdf
+$ENDCMP
+#
 $CMP AT25xxx
 D Microchip SPI Serial EEPROM, DIP-8/SOIC-8/TSSOP-8
 K EEPROM memory SPI serial
