@@ -521,4 +521,35 @@ F 3 "~" H 6650 5700 50  0001 C CNN
 	1    6650 5700
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:GND #PWR0149
+U 1 1 60DACF23
+P 7800 5450
+F 0 "#PWR0149" H 7800 5200 50  0001 C CNN
+F 1 "GND" H 7805 5277 50  0000 C CNN
+F 2 "" H 7800 5450 50  0001 C CNN
+F 3 "" H 7800 5450 50  0001 C CNN
+	1    7800 5450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7650 5250 7800 5450
+Wire Wire Line
+	7950 5250 7800 5450
+Connection ~ 7800 5450
+Text Notes 7350 4850 0    50   ~ 0
+originally for HD3SS3320,\nnow deleted but keep it on\n board for stencil reuse\n\nas a good practice, floating\ncopper pads grounded
+$Comp
+L Device:R_US R?
+U 1 1 60D66ED8
+P 7800 5250
+AR Path="/60085564/60D66ED8" Ref="R?"  Part="1" 
+AR Path="/60C6101E/60D66ED8" Ref="R13"  Part="1" 
+F 0 "R13" V 7750 5000 50  0000 C CNN
+F 1 "NC" V 7750 5450 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 7840 5240 50  0001 C CNN
+F 3 "~" H 7800 5250 50  0001 C CNN
+	1    7800 5250
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
