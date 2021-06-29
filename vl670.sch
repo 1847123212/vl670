@@ -4,14 +4,14 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 4
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
-Comment3 ""
-Comment4 ""
+Title "Main Schematic - VL670 Development Board"
+Date "2021-06-29"
+Rev "v0.01"
+Comp "Copyright (C) 2021 Tom Li (niconiconi)"
+Comment1 "https://creativecommons.org/publicdomain/zero/1.0/"
+Comment2 "the designer has waived all copyright and related or neighboring rights."
+Comment3 "To the extent possible under law,"
+Comment4 "License: CC 0, “No Rights Reserved”"
 $EndDescr
 $Comp
 L power:+5V #PWR0101
@@ -175,18 +175,12 @@ $EndComp
 Wire Wire Line
 	4350 3950 4350 4050
 Connection ~ 4350 4050
-Text Notes 3700 4250 0    50   ~ 0
-VL670: 11.3k\nVL671: 11.8k
-Text Notes 5600 1050 0    50   ~ 0
-Internal 3.3 V/1.5 V LDO & 1.2 V\nDCDC should only power VL670 & \nEEPROM. DON'T CONNECT TO OTHER\nCHIPS.
 Wire Notes Line
 	7000 600  5550 600 
 Text Notes 6050 700  0    50   ~ 10
 Note 1:
 Text Notes 3800 4050 0    50   ~ 10
 Note 4:
-Wire Notes Line
-	3650 4300 4250 4300
 Wire Notes Line
 	4250 3950 3650 3950
 Text Notes 3100 2000 0    50   ~ 0
@@ -197,8 +191,6 @@ Wire Notes Line
 	3050 2050 4300 2050
 Wire Notes Line
 	3050 1450 4300 1450
-Wire Notes Line
-	5550 1100 7000 1100
 $Comp
 L power:+3V3 #PWR0109
 U 1 1 604534AB
@@ -294,7 +286,6 @@ Wire Wire Line
 Wire Wire Line
 	4350 4150 4350 4250
 Connection ~ 4350 4250
-NoConn ~ 9600 4400
 $Comp
 L power:GND #PWR0121
 U 1 1 60AA74D3
@@ -365,13 +356,12 @@ Wire Wire Line
 $Comp
 L Connector:Conn_01x07_Male J3
 U 1 1 61CF71E3
-P 9900 5600
-F 0 "J3" H 9750 5550 50  0000 R CNN
-F 1 "Conn_01x07_Male" H 9872 5623 50  0001 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical" H 9900 5600 50  0001 C CNN
-F 3 "~" H 9900 5600 50  0001 C CNN
-F 4 "NC" H 9700 5650 50  0000 C CNN "Install"
-	1    9900 5600
+P 10250 5600
+F 0 "J3" H 10100 5600 50  0000 R CNN
+F 1 "Conn_01x07_Male" H 10222 5623 50  0001 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical" H 10250 5600 50  0001 C CNN
+F 3 "~" H 10250 5600 50  0001 C CNN
+	1    10250 5600
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
@@ -436,16 +426,16 @@ Wire Wire Line
 $Comp
 L power:GND #PWR0126
 U 1 1 60071875
-P 9500 6300
-F 0 "#PWR0126" H 9500 6050 50  0001 C CNN
-F 1 "GND" H 9505 6127 50  0000 C CNN
-F 2 "" H 9500 6300 50  0001 C CNN
-F 3 "" H 9500 6300 50  0001 C CNN
-	1    9500 6300
+P 9850 6300
+F 0 "#PWR0126" H 9850 6050 50  0001 C CNN
+F 1 "GND" H 9855 6127 50  0000 C CNN
+F 2 "" H 9850 6300 50  0001 C CNN
+F 3 "" H 9850 6300 50  0001 C CNN
+	1    9850 6300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9500 5900 9700 5900
+	9850 5900 10050 5900
 Wire Wire Line
 	7300 4200 7400 4200
 Wire Wire Line
@@ -687,7 +677,7 @@ F 3 "" H 8550 3850 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Text Notes 2200 6300 0    50   ~ 0
-By default, both VL670 and ISP header\nare connected, to allow probing SPI\nwhile VL670 is running.\n\nTo program the EEPROM, a programmer\nmust pull ~ISP_ENABLE~ low from the ISP\nheader (bridge pin 6 & 7 on J1), to\navoid bus contention.
+By default, both VL670 and ISP header\nare connected, to allow probing SPI\nwhile VL670 is running.\n\nTo program the EEPROM, a programmer\nmust pull ~ISP_ENABLE~ low from the ISP\nheader (bridge pin 6 "~EN~"& 7 "GND" on\nJ1), to avoid bus contention.
 $Comp
 L power:+3V3 #PWR0129
 U 1 1 5FE7A3DB
@@ -951,7 +941,7 @@ L Device:D_TVS D7
 U 1 1 60915659
 P 7950 6050
 F 0 "D7" V 7800 5900 50  0000 L CNN
-F 1 "ESD7951S" V 8300 6000 50  0000 L CNN
+F 1 "ESD5B5.0ST1G-N" V 8300 5750 50  0000 L CNN
 F 2 "Diode_SMD:D_SOD-523" H 7950 6050 50  0001 C CNN
 F 3 "~" H 7950 6050 50  0001 C CNN
 	1    7950 6050
@@ -1046,7 +1036,7 @@ Wire Wire Line
 	8950 5900 8950 5800
 Connection ~ 8950 5800
 Wire Wire Line
-	9500 5900 9500 6300
+	9850 5900 9850 6300
 Wire Wire Line
 	7950 6300 8150 6300
 Wire Wire Line
@@ -1199,7 +1189,7 @@ L Device:D_TVS D14
 U 1 1 60EF6415
 P 950 5700
 F 0 "D14" V 800 5550 50  0000 L CNN
-F 1 "ESD7951S" V 1400 5650 50  0000 L CNN
+F 1 "ESD5B5.0ST1G-N" V 1400 5400 50  0000 L CNN
 F 2 "Diode_SMD:D_SOD-523" H 950 5700 50  0001 C CNN
 F 3 "~" H 950 5700 50  0001 C CNN
 	1    950  5700
@@ -1240,7 +1230,7 @@ Wire Wire Line
 Wire Wire Line
 	850  5250 1850 5250
 Text Notes 2950 1100 0    50   ~ 0
-Cut jumpers to isolate USB\nconnector from global 5 V\nrail for debugging with\nexternal power.
+Cut JP2 to isolate USB\nconnector from global 5 V\nrail for debugging with\nexternal power.
 Text Notes 3300 750  0    50   ~ 10
 Note 2:
 $Comp
@@ -1432,8 +1422,8 @@ $Comp
 L vl670:ESD7104 D3
 U 1 1 604983EA
 P 9100 1300
-F 0 "D3" H 8700 1000 50  0000 L CNN
-F 1 "ESD7104" H 8550 900 50  0000 L CNN
+F 0 "D3" H 9550 1150 50  0000 L CNN
+F 1 "ESD7104" H 9450 1250 50  0000 L CNN
 F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 9100 950 50  0001 C CNN
 F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 9100 1250 50  0001 C CNN
 	1    9100 1300
@@ -1498,9 +1488,9 @@ F8 "ISP_MOSI" I L 2350 5050 50
 F9 "ISP_MISO" O L 2350 4950 50 
 F10 "~ISP_ENABLE" I L 2350 5150 50 
 $EndSheet
-Text Label 9800 2750 2    50   ~ 0
-DN_TX_AC-
 Text Label 9800 2550 2    50   ~ 0
+DN_TX_AC-
+Text Label 9800 2750 2    50   ~ 0
 DN_TX_AC+
 Connection ~ 700  7500
 Connection ~ 700  6850
@@ -1742,7 +1732,7 @@ L power:+5V #PWR0138
 U 1 1 606E1D73
 P 4200 6850
 F 0 "#PWR0138" H 4200 6700 50  0001 C CNN
-F 1 "+5V" H 4215 7023 50  0000 C CNN
+F 1 "+5V" H 4200 7000 50  0000 C CNN
 F 2 "" H 4200 6850 50  0001 C CNN
 F 3 "" H 4200 6850 50  0001 C CNN
 	1    4200 6850
@@ -1883,22 +1873,11 @@ Wire Wire Line
 Wire Wire Line
 	2200 4200 2350 4200
 $Comp
-L vl670:ESD7104 D6
-U 1 1 6046BFCB
-P 9100 3200
-F 0 "D6" H 8550 3300 50  0000 L CNN
-F 1 "ESD7104" H 8400 3200 50  0000 L CNN
-F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 9100 2850 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 9100 3150 50  0001 C CNN
-	1    9100 3200
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C_Small C8
 U 1 1 609AE51A
 P 8450 2750
 F 0 "C8" V 8400 2600 50  0000 C CNN
-F 1 "220nF" V 8400 2900 50  0000 C CNN
+F 1 "100nF" V 8400 2900 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 8450 2750 50  0001 C CNN
 F 3 "~" H 8450 2750 50  0001 C CNN
 	1    8450 2750
@@ -1909,7 +1888,7 @@ L Device:C_Small C7
 U 1 1 609AE13A
 P 8450 2550
 F 0 "C7" V 8400 2400 50  0000 C CNN
-F 1 "220nF" V 8400 2700 50  0000 C CNN
+F 1 "100nF" V 8400 2700 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 8450 2550 50  0001 C CNN
 F 3 "~" H 8450 2550 50  0001 C CNN
 	1    8450 2550
@@ -1929,30 +1908,6 @@ Wire Wire Line
 	8050 2400 9300 2400
 Wire Wire Line
 	7950 2300 9200 2300
-Wire Wire Line
-	9000 2900 9000 2550
-Wire Wire Line
-	9000 2550 10100 2550
-Wire Wire Line
-	8900 2900 8900 2750
-Wire Wire Line
-	8900 2750 10100 2750
-Wire Wire Line
-	10200 2600 10100 2550
-Wire Wire Line
-	10200 2700 10100 2750
-Wire Wire Line
-	8550 2550 8800 2550
-Wire Wire Line
-	8800 2550 8900 2750
-Connection ~ 8900 2750
-Wire Wire Line
-	8550 2750 8800 2750
-Wire Wire Line
-	9000 2550 8900 2550
-Connection ~ 9000 2550
-Wire Wire Line
-	8900 2550 8800 2750
 $Comp
 L Device:R_US R20
 U 1 1 61D6C1E1
@@ -1977,22 +1932,12 @@ F 3 "" H 9200 6300 50  0001 C CNN
 	1    9200 6300
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8950 5800 9700 5800
-Wire Wire Line
-	8750 5700 9700 5700
-Wire Wire Line
-	8550 5600 9700 5600
-Wire Wire Line
-	7950 5300 9700 5300
 Wire Notes Line
-	9750 6250 10350 6250
+	10100 6250 10700 6250
 Wire Notes Line
-	10350 6000 9750 6000
+	10700 6000 10100 6000
 Wire Wire Line
-	8150 5400 9700 5400
-Wire Wire Line
-	9200 5500 9700 5500
+	8150 5400 9500 5400
 Wire Wire Line
 	8350 5500 9200 5500
 Connection ~ 9200 5500
@@ -2009,8 +1954,85 @@ Wire Wire Line
 	8450 4400 8450 4550
 Wire Wire Line
 	9650 4150 9900 4150
-Text Notes 9750 6200 0    50   ~ 0
+Text Notes 10100 6200 0    50   ~ 0
 R20 is important
-Text Notes 9900 6100 0    50   ~ 10
+Text Notes 10250 6100 0    50   ~ 10
 Note 6:
+$Comp
+L Device:R_US R21
+U 1 1 60D3D349
+P 9500 6050
+F 0 "R21" H 9568 6096 50  0000 L CNN
+F 1 "10k" H 9568 6005 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 9540 6040 50  0001 C CNN
+F 3 "~" H 9500 6050 50  0001 C CNN
+	1    9500 6050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9500 5900 9500 5400
+Connection ~ 9500 5400
+Wire Wire Line
+	7950 5300 10050 5300
+Wire Wire Line
+	9500 5400 10050 5400
+Wire Wire Line
+	9200 5500 10050 5500
+Wire Wire Line
+	8550 5600 10050 5600
+Wire Wire Line
+	8750 5700 10050 5700
+Wire Wire Line
+	8950 5800 10050 5800
+$Comp
+L power:GND #PWR0184
+U 1 1 60E3A940
+P 9500 6300
+F 0 "#PWR0184" H 9500 6050 50  0001 C CNN
+F 1 "GND" H 9505 6127 50  0000 C CNN
+F 2 "" H 9500 6300 50  0001 C CNN
+F 3 "" H 9500 6300 50  0001 C CNN
+	1    9500 6300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9500 6200 9500 6300
+NoConn ~ 9650 4400
+$Comp
+L vl670:ESD7104 D6
+U 1 1 6046BFCB
+P 9100 3200
+F 0 "D6" H 8550 3300 50  0000 L CNN
+F 1 "ESD7104" H 8400 3200 50  0000 L CNN
+F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 9100 2850 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 9100 3150 50  0001 C CNN
+	1    9100 3200
+	1    0    0    -1  
+$EndComp
+Wire Notes Line
+	5550 1100 7000 1100
+Text Notes 5550 1050 0    50   ~ 0
+Internal 3.3 V, 1.5 V, 1.2 V supplies\nshould only power VL670 & EEPROM\nand the SPI multiplexers.\nDON'T CONNECT TO OTHER CHIPS.
+Wire Wire Line
+	8550 2550 8900 2550
+Wire Wire Line
+	8550 2750 9000 2750
+Wire Wire Line
+	8900 2900 8900 2550
+Connection ~ 8900 2550
+Wire Wire Line
+	8900 2550 10100 2550
+Wire Wire Line
+	9000 2900 9000 2750
+Connection ~ 9000 2750
+Wire Wire Line
+	9000 2750 10100 2750
+Wire Wire Line
+	10100 2550 10200 2700
+Wire Wire Line
+	10100 2750 10200 2600
+Text Notes 3700 4250 0    50   ~ 0
+VL670: 11.3k\nVL671: 11.8k
+Wire Notes Line
+	3650 4300 4250 4300
 $EndSCHEMATC
