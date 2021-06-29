@@ -289,6 +289,13 @@ firmware uses `GPIO1_1/GPIO_TP2` instead.
 
 * `UART_RX` and `UART_TX` - no traffic observed. More hacking required.
 
+#### PCB Stack-up
+
+This is a 4-layer PCB, using the Signal-Ground-Power-Signal stack-up
+with impedance controlled traces, and fabricated by JLCPCB's JLC2313
+stack-up. The dielectric constant of the board is 4.05, the distance
+between the signal and its reference plane is 0.1 mm.
+
 ### License
 
 Copyright (C) 2021 Tom Li (niconiconi)
