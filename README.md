@@ -1,6 +1,12 @@
 VL670 Development Board - USB 2.0 to 3.0 Transaction Translator
 ===============================================================
 
+### Photos
+
+#### Front and Back of the PCB
+
+![Front and Back of the PCB](https://notabug.org/niconiconi/vl670/raw/main/photos/board1.jpg)
+
 ### Introduction
 
 #### The Problem
