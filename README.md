@@ -77,7 +77,7 @@ used as a part or subassembly in any finished product.
 
 #### Generations
 
-VL670 is already obsolete. The second generation is VL670. However, this
+VL670 is already obsolete. The second generation is VL671. However, this
 development board only supports VL670. A VL671 variant is work-in-progress
 and should be ready in the following month.
 
