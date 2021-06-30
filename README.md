@@ -157,7 +157,7 @@ but fixing them is still a good practice.
 
 ### Firmware
 
-The firmare for the SPI Flash can be found at GitHub.
+The firmare for the SPI Flash can be found at GitLab.
 
 * [SPI Flash Firmware](https://gitlab.com/niconicon1/vl670-firmware)
 
