@@ -126,12 +126,28 @@ as a SuperSpeed device.
 #### Bugs
 
 1. Somewhat unstable power-on behavior. It's recommended to first power
-the device on, then attach the downstream devices.
+the device on, then attach the downstream devices. Seems to be a problem
+related to firmware.
 
 2. TPS2061C (U4) has unsatisfactory PCB layout, ideally large copper pours
 and vias should be used to reduce the thermal resistance, but it's ignored
 by this development board due to an oversight. The downstream port may enter
 thermal shutdown below the actual current limit.
+
+3. Capacitance at the downstream port is only 1 uF. Ideally it should be
+around 100 uF.
+
+4. Total capacitance of all power rails at the upstream port is greater than
+10 uF - its power-on transient should be double-checked to see whether in-rush
+current violates the USB spec (it may still pass since different power rails
+are not switched on simultaneously).
+
+5. The upstream and downstream USB ports have no ferrite beads for power
+rails nor common-mode chokes for the signals. Electromagnetic compatibility
+and noise performance is limited.
+
+For a development board, problem (3), (4) and (5) probably doesn't matter,
+but fixing them is still a good practice.
 
 ### Theory of Operation
 
