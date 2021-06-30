@@ -323,13 +323,13 @@ between the signal and its reference plane is 0.1 mm.
 Copyright (C) 2021 Tom Li (niconiconi)
 "No Rights Reserved"
 
-This is a free hardware design: to the extent possible under law, the author
+This is a free hardware design: to the extent possible under law, the designer
 has waived all copyright and related or neighboring rights, you can reuse,
 modify, redistribute this design, as freely as possible in any form whatsoever
 and for any purposes, including commercial purposes, under the terms of the
 *CC0 1.0 Universal License*.
 
-This hardware design is offered as-is and the author makes no representations
+This hardware design is offered as-is and the designer makes no representations
 or warranties of any kind concerning the design, express, implied, statutory or
 otherwise, including without limitation warranties of title, merchantability,
 fitness for a particular purpose, non infringement, or the absence of latent
