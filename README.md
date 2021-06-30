@@ -155,6 +155,53 @@ but fixing them is still a good practice.
 
 * [PDF layout](https://notabug.org/niconiconi/vl670/src/7e76df8d69733e7ec7181bcde1900dcb26efe4d7/schematics/vl670-layout.pdf)
 
+### Firmware
+
+The firmare for the SPI Flash can be found at GitHub.
+
+* [SPI Flash Firmware](https://gitlab.com/niconicon1/vl670-firmware)
+
+#### Non-Free
+
+Unfortunately, VL670/671 is driven by a microcontroller and requires a
+proprietary firmware to operate.
+
+Nevertheless, the firmware is burned into the Flash memory only once after
+the device is assembled, and it's fetched by the VL670 ASIC itself, not
+uploaded from a user's host computer, nor it executes any code on a user's
+host computer or operating system. If we make the firmware read-only and
+unmodifiable by pure software, the firmware effectively "vanishes" from the
+software domain and becomes a part of the hardware itself, making the hardware
+qualifies as free device, just like [how OpenMoko did it](https://lwn.net/Articles/460654/).
+Another benefit is improved security, as malicious software is unable to
+reprogram the firmware via USB to launch a BadUSB attack.
+
+This is implemented as jumper `JP1`, once the jumper is hardwired on the board,
+the EEPROM is read-only and cannot be modified by software without hardware
+modifications.
+
+That being said, this is a somewhat "underhanded" way to bypass the free software
+and hardware requirements and this behavior stays exactly at the borderline of
+the definition of "free", just moving one more nanometer away makes it non-free.
+This is hardly satisfactory! But this is all we have at the current moment.
+
+#### Reverse Engineering
+
+The long term solution is reverse engineering the firmware and writing a free and
+open reimplementation. This also enables us to customize the firmware for our
+needs, fixing bugs in the firmware, and understanding the behavior of the hardware
+better.
+
+But before you start, note that VL670 is already obsolete, its internal
+microcontroller also uses an unknown custom architecture, I suspect it's
+Xtensa. Its replacement, VL671, uses a different microcontroller (ARM Cortex)
+and a different firmware.
+
+Reverse engineering an uncommon architecture's firmware for an already obsolete
+chip is not productive. I suggest leaving the proprietary VL670 firmware as-is,
+instead, wait for the VL671 development board (I should be able to finish it
+within a month) and work on the upcoming VL671 firmware instead.
+
 ### Theory of Operation
 
 #### Overview
