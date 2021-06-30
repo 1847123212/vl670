@@ -156,6 +156,30 @@ but fixing them is still a good practice.
 
 * [PDF layout](https://notabug.org/niconiconi/vl670/raw/main/schematics/vl670-layout.pdf)
 
+### Datasheets
+
+Datasheets for all components on the development board can be found at GitLab.
+
+* [Datasheets Repository](https://gitlab.com/niconicon1/vl670-datasheets)
+
+It contains the following documents.
+
+* [VL670 USB2.0 to USB3.0 Transaction Translator](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/DS_VL670_115.pdf)
+
+* [VL671 Low Power USB 2.0 to USB 3.1 Gen1 Transaction Translator](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/DS_VL670_115.pdf)
+
+* [HD3SS3220 USB Type-C DRP Port Controller with SuperSpeed 2:1 MUX](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/hd3ss3220.pdf)
+
+* [TPS20xxC and TPS20xxC-2 Current Limited, Power-Distribution Switches](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/tps2061c.pdf)
+
+* [GD25D10C/05C 3.3V Uniform Sector Standard and Dual Serial Flash](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/GD25D05C.pdf)
+
+* [SN74LVC2G66 Dual Bilateral Analog Switch](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/sn74lvc2g66.pdf)
+
+* [ESD7104 Low Capacitance ESD Protection Diode for High Speed Data Line](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/ESD7104-D.PDF)
+
+* [ESD5B5.0ST1G-N ESD Protection Diode](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/ESD5B5.0ST1G-N.pdf)
+
 ### Firmware
 
 The firmware for the SPI Flash can be found at GitLab.
