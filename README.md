@@ -150,7 +150,7 @@ but fixing them is still a good practice.
 
 ![Front and Back of the PCB](https://notabug.org/niconiconi/vl670/raw/main/photos/board1.jpg)
 
-### Schematics Download
+### Schematics
 
 * [PDF schematics](https://notabug.org/niconiconi/vl670/raw/main/schematics/vl670-schematics.pdf)
 
