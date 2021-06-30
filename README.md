@@ -18,9 +18,10 @@ together, it creates some limitations.
 
 * Bandwidth: You may want to simutaneously access multiple USB 2.0
 devices, such as many USB flash drives, video cameras, or Software
-Defined Radios (SDR). However, even on a USB 3.0 hub, the total bandwidth
-of all USB 2.0 devices is still limited to 480 Mbps, just like a regular
-USB 2.0 port.
+Defined Radios (SDR) over a single USB 3.0 port using a USB hub,
+since it has 5 Gbps bandwidth. However, you cannot do this - the total
+bandwidth of all USB 2.0 devices is still limited to 480 Mbps, just
+like a regular USB 2.0 port.
 
 * Signal Extension and Isolation: Counter-intuitively, it's easier to
 transmit USB 3.0 signals (not USB 2.0 High-Speed) over long distances,
@@ -47,9 +48,9 @@ By transparently upgrading a legacy USB 2.0 device to USB 3.0, both problems
 are eliminated.
 
 This is not a perfect solution, first, it's technically a violation of the
-USB standards, device compatibility is also limited. Nevertheless, it's still
-helpful to hardware developers and can solve many practical problems in hardware
-Research and Development.
+USB standards, also device compatibility is also limited. Nevertheless, it's
+still helpful to hardware developers and can solve many practical problems
+in hardware Research and Development.
 
 This technology is marketed as "SuperTT" (Super Transaction Translator)
 technology by some OEM vendors.
@@ -79,12 +80,12 @@ and should be ready in the following month.
 
 #### LED Status
 
-* Blink: Initial power-on reset, or an USB 2.0 device has just connected.
+* Blink: Initial power-on reset, or a USB 2.0 device has just connected.
 
-* On: An USB 2.0 device has just connected and its traffic is being
+* On: A USB 2.0 device has just connected and its traffic is being
 translated to USB 3.0 traffic by VL670.
 
-* Off: An USB 3.0 or 2.0 device is connected and its traffic is passing
+* Off: A USB 3.0 or 2.0 device is connected and its traffic is passing
 through VL670 as-is without any translation.
 
 ### Known Issues
@@ -177,7 +178,7 @@ Another benefit is improved security, as malicious software is unable to
 reprogram the firmware via USB to launch a BadUSB attack.
 
 This is implemented as jumper `JP1`, once the jumper is hardwired on the board,
-the EEPROM is read-only and cannot be modified by software without hardware
+the Flash is read-only and cannot be modified by software without hardware
 modifications.
 
 That being said, this is a somewhat "underhanded" way to bypass the free software
@@ -286,7 +287,7 @@ integrity. Instead of passively connecting them together, an active electronic
 switch, known as an demultiplexer, should be used to select one out of two
 pairs.
 
-The solution is HD3SS3220 (`U1`), it's an USB-C controller with built-in
+The solution is HD3SS3220 (`U1`), it's a USB-C controller with built-in
 switches. It automatically selects the correct differential pair, either `TX1+`,
 `TX1-`, `RX1+`, `RX1-` or `TX2+`, `TX2-`, `RX2+`, `RX2-`, based on the
 orientation of the Type-C plug as soon as a Type-C cable is plugged in.
@@ -297,15 +298,15 @@ just like the signal coming out from a traditional USB 3.0 Type-B connector.
 
 An SPI pin header (`J3`) is provided at the top right of the board. The header is
 directly connected to the signal lines between the VL670 controller and the
-GD25D05 (`U6`) SPI Flash, allowing one to attach a logic analyzer to monitor bus
-while the controller is running.
+GD25D05 (`U6`) SPI Flash, allowing one to attach a logic analyzer to monitor the
+bus while the controller is running.
 
-To allow a developer to read or write the EEPROM via SPI directly without a
+To allow a developer to read or write the Flash via SPI directly without a
 potentially destructive bus contention, VL670's SPI bus is gated by two
 74LVC2G66 CMOS analog switches (`U3` and `U5`). When the `/EN` (a.k.a `ISP_ENABLE`)
 pin of the pin header is grounded (by bridging pin 6 and 7 on the pin header),
 the processor is cut off from the SPI bus, giving the SPI pin header exclusive
-access to the EEPROM.
+access to the Flash.
 
 #### External Power
 
