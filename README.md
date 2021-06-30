@@ -333,14 +333,16 @@ USB 2.0 signals are wired to the downstream VL670, the USB 3.0 signals
 are directly wired to the upstream hub. This can be understood as an
 attempt to improve compatibility. In my tests, I found the USB 3.0
 passthrough offered by VL670 is not always reliable and some devices
-cannot be used.
+cannot be used. Thus, wiring the USB 3.0 signal directly to the host
+via a USB 3.0 hub is beneficial.
 
 * `GPIO1_3 / DN_PWREN` is meant to be an `/ENABLE` signal to the downstream
 USB port, but it seems to be high-impedance.
 
-* `GPIO1_2 / GPIO_TP3` is used by the firmware as an input for deciding
-whether to enable VL670. On this development board, this pin is pulled down
-by a resistor, otherwise the USB connection would be reset randomly.
+* `GPIO1_2 / GPIO_TP3` is officially unused, but the OEM firmware uses it as
+an input for deciding whether to enable VL670. On this development board, this
+pin is pulled down by a resistor, otherwise the USB connection would reset
+randomly.
 
 On the reverse-engineered hardware, the downstream hub `/ENABLE` seems to
 be Wired-Or together with `DN_PWREN` output, the `ENABLE` pin output from
@@ -348,12 +350,12 @@ the upstream USB Hub (to allow both chips to make a `ENABLE` decision?),
 and the input `GPIO1_2`. It appears to be a workaround to allow the use
 of aforementioned hybrid topology.
 
-* `GPIO1_0 / GPIO_TP1` is connected to the USB hub's (not VL670's own)
-private SPI bus, between the hub and its SPI firmware flash, monitoring
-the `MISO` signal. On this development board, this pin is pulled down by
-a resistor. Although it seems to work without one, but leaving the input
-in a known state is still desirable as we don't really understand its
-purpose.
+* `GPIO1_0 / GPIO_TP1` is officially unused, but the OEM hardware connects it
+to the USB hub's (not VL670's own) private SPI bus, between the hub and its SPI
+firmware flash, monitoring the `MISO` signal. On this development board, this
+pin is pulled down by a resistor. Although it seems to work without one, but
+leaving the input in a known state is still desirable as we don't really
+understand its purpose.
 
 Again, a odd design, and I suspect the firmware is using it as an interrupt
 signal to detect whether the USB hub is active for logic sequencing or
