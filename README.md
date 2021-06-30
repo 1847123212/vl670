@@ -48,12 +48,12 @@ By transparently upgrading a legacy USB 2.0 device to USB 3.0, both problems
 are eliminated.
 
 This is not a perfect solution, first, it's technically a violation of the
-USB standards, also device compatibility is also limited. Nevertheless, it's
+USB standards, also device compatibility is limited. Nevertheless, it's
 still helpful to hardware developers and can solve many practical problems
 in hardware Research and Development.
 
 This technology is marketed as "SuperTT" (Super Transaction Translator)
-technology by some OEM vendors.
+by some OEM vendors.
 
 #### My Project
 
@@ -158,7 +158,7 @@ but fixing them is still a good practice.
 
 ### Firmware
 
-The firmare for the SPI Flash can be found at GitLab.
+The firmware for the SPI Flash can be found at GitLab.
 
 * [SPI Flash Firmware](https://gitlab.com/niconicon1/vl670-firmware)
 
