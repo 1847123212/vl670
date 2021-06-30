@@ -166,7 +166,7 @@ It contains the following documents.
 
 * [VL670 USB2.0 to USB3.0 Transaction Translator](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/DS_VL670_115.pdf)
 
-* [VL671 Low Power USB 2.0 to USB 3.1 Gen1 Transaction Translator](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/DS_VL670_115.pdf)
+* [VL671 Low Power USB 2.0 to USB 3.1 Gen1 Transaction Translator](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/DS_VL671_080.PDF)
 
 * [HD3SS3220 USB Type-C DRP Port Controller with SuperSpeed 2:1 MUX](https://gitlab.com/niconicon1/vl670-datasheets/-/raw/main/hd3ss3220.pdf)
 
