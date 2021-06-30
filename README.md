@@ -218,12 +218,12 @@ applied to the board by the host, the decoupling capacitors on the 5 V rail
 starts charging up. Shortly after the 5 V rail settles, the internal power
 converters inside the VL670 controller (`U2`) are activated. They are a 3.3 V
 LDO, a 1.5 V DC/DC, and a 1.2 V LDO converter, generating the three power rails
-for VL670, the SPI flash (`U6`), and the SPI multiplexers (`U3` and `U5`).
+for VL670, the SPI Flash (`U6`), and the SPI multiplexers (`U3` and `U5`).
 
 When 3.3 V is ready, after approximately 24 milliseconds, the VL670 controller
 (`U2`) leaves the power-on reset state, timed by the RC circuit `R4` and `C13`,
 and the processor core inside VL670 starts operating. VL670 fetches firmware
-code via the flash chip GD25D05 (`U6`) via the SPI bus.
+code from the Flash chip GD25D05 (`U6`) via the SPI bus.
 
 Meanwhile, back to USB (`J2`), at the host side, the incoming 3.0 signal lines from
 the Type-C cable is demultiplexed by the USB Type-C controller HD3SS3220 (`U1`)
@@ -353,7 +353,7 @@ of aforementioned hybrid topology.
 
 * `GPIO1_0 / GPIO_TP1` is officially unused, but the OEM hardware connects it
 to the USB hub's (not VL670's own) private SPI bus, between the hub and its SPI
-firmware flash, monitoring the `MISO` signal. On this development board, this
+firmware Flash, monitoring the `MISO` signal. On this development board, this
 pin is pulled down by a resistor. Although it seems to work without one, but
 leaving the input in a known state is still desirable as we don't really
 understand its purpose.
