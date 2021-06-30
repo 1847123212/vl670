@@ -1,12 +1,6 @@
 VL670 Development Board - USB 2.0 to 3.0 Transaction Translator
 ===============================================================
 
-### Photos
-
-#### Front and Back of the PCB
-
-![Front and Back of the PCB](https://notabug.org/niconiconi/vl670/raw/main/photos/board1.jpg)
-
 ### Introduction
 
 #### The Problem
@@ -148,6 +142,12 @@ and noise performance is limited.
 
 For a development board, problem (3), (4) and (5) probably doesn't matter,
 but fixing them is still a good practice.
+
+### Photos
+
+#### Front and Back of the PCB
+
+![Front and Back of the PCB](https://notabug.org/niconiconi/vl670/raw/main/photos/board1.jpg)
 
 ### Theory of Operation
 
