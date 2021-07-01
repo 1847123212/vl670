@@ -330,7 +330,8 @@ potentially destructive bus contention, VL670's SPI bus is gated by two
 74LVC2G66 CMOS analog switches (`U3` and `U5`). When the `/EN` (a.k.a `ISP_ENABLE`)
 pin of the pin header is grounded (by bridging pin 6 and 7 on the pin header),
 the processor is cut off from the SPI bus, giving the SPI pin header exclusive
-access to the Flash.
+access to the Flash. The `/EN` signal is also directly connected to the `/RESET`
+signal of VL670 to halt the processor.
 
 #### External Power
 
