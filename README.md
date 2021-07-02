@@ -83,10 +83,40 @@ and should be ready in the following month.
 * Blink: Initial power-on reset, or a USB 2.0 device has just connected.
 
 * On: A USB 2.0 device has just connected and its traffic is being
-translated to USB 3.0 traffic by VL670.
+translated to USB 3.0 traffic by VL670, or the processor is being held
+in reset by the SPI header.
 
 * Off: A USB 3.0 or 2.0 device is connected and its traffic is passing
 through VL670 as-is without any translation.
+
+#### Voltage Level
+
+All I/O are 3.3 V LVCMOS. Applying 5 V TTL level can damage the VL670,
+its SPI flash, or both.
+
+#### SPI header
+
+An SPI pin header is located at the top right of the board. By default, it's
+connected directly to both the VL670 controller and its SPI Flash, allowing
+one to probe the SPI bus while the controller is running. In this default mode,
+applying voltages to the SPI header is prohibited, otherwise damage may occur.
+
+To read or write the Flash via SPI, the `/EN` (a.k.a `ISP_ENABLE`) pin of the pin
+header is grounded (by bridging pin 6 and 7 on the pin header), the processor is
+cut off from the SPI bus and held in reset, giving the SPI pin header exclusive
+access to the Flash.
+
+For more information, see *Theory of Operation*, section *SPI Debugging and
+Programming* and schematics.
+
+#### GPIO header
+
+All GPIO pin header is located at the top left of the board, exposing all
+GPIOs of VL670. Nevertheless, their functionality is unclear and it's only
+useful for reverse engineering.
+
+For more information, see *Theory of Operation*, section *Oddities* and
+schematics.
 
 ### Known Issues
 
