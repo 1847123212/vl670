@@ -455,10 +455,15 @@ only if careful calculation and simulation is performed to predict and control
 the anti-resonance peaks - which is overkill for this board.
 
 For the argument against multiple capacitor values, see *Electromagnetic
-Compatibility Engineering*, Chapter 11 *Digital Circuit Power Distribution*
-by Henry Ott. And for the argument for multiple capacitor values, but with
-careful design and simulation, see *Signal and Power Integrity – Simplified*,
-Chapter 13 *The Power Distribution Network* by Eric Bogatin.
+Compatibility Engineering* by Henry Ott, Chapter 11 *Digital Circuit Power
+Distribution*, Section 11.4.1 *Multiple Decoupling Capacitors*. And for the
+argument for multiple capacitor values, but with careful design and simulation,
+see *Principles of Power Integrity for PDN Design* by Larry D. Smith and Eric
+Bogatin, Chapter 8 *The PDN Ecology*, Section 8.17 *Using Three Different
+Values of MLCC Capacitors on the Board*.
+
+P.S: Smith & Bogatin's conclusions are terrifying, I'll just pretend that I
+don't know that...
 
 #### PCB Stack-up
 
