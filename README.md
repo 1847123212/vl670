@@ -422,12 +422,54 @@ firmware uses `GPIO1_1/GPIO_TP2` instead.
 
 * `UART_RX` and `UART_TX` - no traffic observed. More hacking required.
 
+#### Power Distribution Network
+
+The Power Distribution Network is decoupled using the standard method of
+"one capacitor per pin, all capacitors have the same value." The 5V rail,
+1.5 V rail and 1.2 V rail are decoupled using 1 uF capacitors, all 0603-sized,
+nothing unusual (but do note C44 is the output capacitor of the DC/DC
+converter).
+
+The 3.3 V rail uses 470 nF capacitors and deserves more attention: C31-C35 are
+meant for power supply decoupling, and are 0603-sized. C71-C82 however, serve
+double duties, they are placed near vias to provide a continuous AC return path
+for signals travelling between layers ("plane stitching"), thus are 0402-sized
+to fit in the tight space near vias. Due to the higher number of capacitors for
+plane stitching, 470 nF capacitors are used to keep the total capacitance per
+rail under 10 uF, hopefully to stay within the USB spec.
+
+Finally, it should be noted that a 0.1 uF capacitor is traditionally seen as
+a "high-frequency capacitor" and is the prefered choice for power decoupling,
+and is often blindly combined with 1 uF capacitors to "cover both high and
+low frequencies." However, many recent books by domain experts have pointed out
+that this practice is counterproductive. First, blindingly mixing capacitor
+values can create anti-resonance impedance peaks and can actually make the
+decoupling worse at some frequencies. Second, considering that this rule of
+thumb originated from the through-hole era, meanwhile the parasitic inductance
+of modern SMD ceramic capacitors is so low, they all have fairly good
+high-frequency performance regardless of their values, their effectiveness is
+mainly limited by package size and PCB inductance. Thus, the modern, updated
+guideline is to use the same capacitance everythere. That being said, there
+are still important uses and benefits for mixing different capacitance, but
+only if careful calculation and simulation is performed to predict and control
+the anti-resonance peaks - which is overkill for this board.
+
+For the argument against multiple capacitor values, see *Electromagnetic
+Compatibility Engineering*, Chapter 11 *Digital Circuit Power Distribution*
+by Henry Ott. And for the argument for multiple capacitor values, but with
+careful design and simulation, see *Signal and Power Integrity – Simplified*,
+Chapter 13 *The Power Distribution Network* by Eric Bogatin.
+
 #### PCB Stack-up
 
 This is a 4-layer PCB, using the Signal-Ground-Power-Signal stack-up
 with impedance controlled traces, and fabricated by JLCPCB's JLC2313
 stack-up. The dielectric constant of the board is 4.05, the distance
 between the signal and its reference plane is 0.1 mm.
+
+JLC2313 is selected for its closer distance between the signal and its
+reference plane in comparison to JLC7628, which allows thinner traces
+and reduced crosstalk.
 
 ### License
 
