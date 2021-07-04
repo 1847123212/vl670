@@ -442,8 +442,8 @@ Finally, it should be noted that a 0.1 uF capacitor is traditionally seen as
 a "high-frequency capacitor" and is the prefered choice for power decoupling,
 and is often blindly combined with 1 uF capacitors to "cover both high and
 low frequencies." However, many recent books by domain experts have pointed out
-that this practice is counterproductive. First, blindingly mixing capacitor
-values can create anti-resonance impedance peaks and can actually make the
+that this practice is counterproductive. First, blindly mixing capacitor
+values can create anti-resonance impedance peaks and actually make the
 decoupling worse at some frequencies. Second, considering that this rule of
 thumb originated from the through-hole era, meanwhile the parasitic inductance
 of modern SMD ceramic capacitors is so low, they all have fairly good
