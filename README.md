@@ -72,9 +72,17 @@ used as a part or subassembly in any finished product.
 
 #### Generations
 
-VL670 is already obsolete. The second generation is VL671. However, this
-development board only supports VL670. A VL671 variant is work-in-progress
-and should be ready in the following month.
+VL670 is already obsolete. The second generation is VL671. <del>However, this
+development board only supports VL670.</del> My test showed that VLI's advertisement
+is true - VL671 is highly compatible with VL670, this development board can
+also be used for VL671, the only modification needed is a single wire for the LED.
+
+Note that VL671 uses a different firmware and has some behavioral differences,
+such as LED status, compatibility, and USB negotiation. The description below only
+applies to VL670.
+
+A new version of the board is work-in-progress and should be ready in the
+following month, both chips will be officially supported.
 
 ### Usage
 
