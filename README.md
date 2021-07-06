@@ -159,19 +159,24 @@ and vias should be used to reduce the thermal resistance, but it's ignored
 by this development board due to an oversight. The downstream port may enter
 thermal shutdown below the actual current limit.
 
-3. Capacitance at the downstream port is only 1 uF. Ideally it should be
+4. Capacitance at the downstream port is only 1 uF. Ideally it should be
 around 100 uF.
 
-4. Total capacitance of all power rails at the upstream port is greater than
+5. Total capacitance of all power rails at the upstream port is greater than
 10 uF - its power-on transient should be double-checked to see whether in-rush
 current violates the USB spec (it may still pass since different power rails
 are not switched on simultaneously).
 
-5. The upstream and downstream USB ports have no ferrite beads for power
+6. The upstream and downstream USB ports have no ferrite beads for power
 rails nor common-mode chokes for the signals. Electromagnetic compatibility
 and noise performance is limited.
 
-For a development board, problem (3), (4) and (5) probably doesn't matter,
+7. A 10 ppm quartz crystal is used, but the actual measurement on a spectrum
+analyzer (with crystal oven frequency standard) shows the actual frequency
+error is 40 ppm or so (unsure, need to recheck). The 20 pF capacitors should
+be replaced with 18 pF capacitors.
+
+For a development board, problem (4), (5) and (6) probably doesn't matter,
 but fixing them is still a good practice.
 
 ### Photos
