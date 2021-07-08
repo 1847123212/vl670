@@ -179,10 +179,11 @@ are not switched on simultaneously).
 rails nor common-mode chokes for the signals. Electromagnetic compatibility
 and noise performance is limited.
 
-7. A 10 ppm quartz crystal is used, but the actual measurement on a spectrum
-analyzer (with crystal oven frequency standard) shows the actual frequency
-error is 40 ppm or so (unsure, need to recheck). The 20 pF capacitors should
-be replaced with 18 pF capacitors.
+7. A 10 ppm, Cl=20pF quartz crystal is used, but the actual measurement on
+a spectrum analyzer (with crystal oven frequency standard) shows the actual
+frequency error is 45 ppm, and pullability is around -6.5 ppm/pF. Thus, the
+load capacitance should be increased by 6 pF. This is consistent with VL671
+datasheet specification.
 
 For a development board, problem (4), (5) and (6) probably doesn't matter,
 but fixing them is still a good practice.
