@@ -203,6 +203,10 @@ but fixing them is still a good practice.
 
 * [PDF layout](https://notabug.org/niconiconi/vl670/raw/main/schematics/vl670-layout.pdf)
 
+### BOM
+
+* [Bill of Material](https://notabug.org/niconiconi/vl670/src/main/bom)
+
 ### Datasheets
 
 Datasheets for all components on the development board can be found at GitLab.
