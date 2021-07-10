@@ -233,7 +233,8 @@ It contains the following documents.
 
 ### Firmware
 
-The firmware for the SPI Flash can be found at GitLab.
+The firmware for the SPI Flash can be found at GitLab. Both VL670 and VL671
+firmware files are included.
 
 * [SPI Flash Firmware](https://gitlab.com/niconicon1/vl670-firmware)
 
@@ -270,13 +271,12 @@ better.
 
 But before you start, note that VL670 is already obsolete, its internal
 microcontroller also uses an unknown custom architecture, I suspect it's
-Xtensa. Its replacement, VL671, uses a different microcontroller (ARM Cortex)
+Xtensa. Its replacement, VL671, uses a different microcontroller (ARM Cortex M3)
 and a different firmware.
 
-Reverse engineering an uncommon architecture's firmware for an already obsolete
-chip is not productive. I suggest leaving the proprietary VL670 firmware as-is,
-instead, wait for the VL671 development board (I should be able to finish it
-within a month) and work on the upcoming VL671 firmware instead.
+I suggest leaving the proprietary VL670 firmware as-is since its architecture
+is less known and the chip is already obsolete. Instead, work on the VL671
+firmware instead.
 
 ### Theory of Operation
 
