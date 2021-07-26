@@ -173,7 +173,9 @@ around 100 uF.
 5. Total capacitance of all power rails at the upstream port is greater than
 10 uF - its power-on transient should be double-checked to see whether in-rush
 current violates the USB spec (it may still pass since different power rails
-are not switched on simultaneously).
+are not switched on simultaneously). Update: inrush test passed, measurements
+show that the only significant inrush current is caused by capacitors at +5 V,
+other power rails produces almost no inrush current.
 
 6. The upstream and downstream USB ports have no ferrite beads for power
 rails nor common-mode chokes for the signals. Electromagnetic compatibility
