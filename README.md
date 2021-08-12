@@ -179,7 +179,8 @@ by this development board due to an oversight. The downstream port may enter
 thermal shutdown below the actual current limit.
 
 3. Capacitance at the downstream port is only 1 uF. Ideally it should be
-around 100 uF.
+around 100 uF, but it's not realizable due to inrush current consideration.
+Nevertheless, 20 uF should be possible.
 
 4. The upstream and downstream USB ports have no ferrite beads for power
 rails nor common-mode chokes for the signals. Electromagnetic compatibility
