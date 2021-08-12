@@ -136,16 +136,27 @@ is working by design and it's not a bug, however, it may cause misleading
 or confusing behaviors, thus, `R1` and `R2` are removed by default, forcing
 VL670 to always work in transaction translator mode.
 
-2. USB 3.0 passthrough is not reliable and it's not compatible with some
-devices, this is a VL670 limitation. Similarly, `C7` and `C8` can be
-removed to disable USB 3.0 passthrough, forcing VL670 to always work in
-transaction translator mode. However, I recommend using a pure USB 2.0 hub
-instead.
+2. In VL670, USB 3.0 passthrough is not reliable and it's not compatible
+with some devices, this is a VL670 limitation. In VL671, USB 3.0 passthrough
+is almost completely broken due to firmware limitation, the only compatible
+device is a USB 3 Hub, direct attachment of a USB 3 device is not compatible.
+Also, because the USB 3 signal path is doubled in passthrough mode, any cable
+longer than 50 centimeters may cause enumeration failures. Thus, USB 3.0
+passthrough mode should be avoided. If you want to test a combo USB 2/3 device,
+I recommend using a pure USB 2.0 hub to completely isolate the USB 3 signals.
+
+    * If you ever need to test USB 3.0 passthrough mode, you should always
+    use a short USB-C cable, no longer than 50 centimeters to minimize signal
+    loss. The ideal setup for USB 3 passthrough testing is: Host, 50 centimeter
+    USB cable, VL671, very short USB cable, USB 3 Hub, device. Failure to follow
+    it to cause enumeration and other failures. For USB 2 transaction mode, no
+    special precaution is needed.
 
     * A hybrid VL670 w/ USB hub topology can be used to work around the
-    problem, it's briefly in the next section of the document.
-
-    * Need to test VL671 to see whether it has the same limitation.
+    problem, it's briefly in the next section of the document. USB redrivers
+    and retimers can also solve the hardware problem (but not the firmware
+    bug). Since USB 3 passthrough is already broken enough and adding either
+    solution makes the project more complicated, I choose not to do it.
 
 3. Not all devices are supported by the transaction translator. Sometimes
 the incompatibility is a hardware or protocol limitation, other times it
