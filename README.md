@@ -170,13 +170,6 @@ thermal shutdown below the actual current limit.
 4. Capacitance at the downstream port is only 1 uF. Ideally it should be
 around 100 uF.
 
-5. Total capacitance of all power rails at the upstream port is greater than
-10 uF - its power-on transient should be double-checked to see whether in-rush
-current violates the USB spec (it may still pass since different power rails
-are not switched on simultaneously). Update: inrush test passed, measurements
-show that the only significant inrush current is caused by capacitors at +5 V,
-other power rails produces almost no inrush current.
-
 6. The upstream and downstream USB ports have no ferrite beads for power
 rails nor common-mode chokes for the signals. Electromagnetic compatibility
 and noise performance is limited.
@@ -438,19 +431,54 @@ firmware uses `GPIO1_1/GPIO_TP2` instead.
 
 #### Power Distribution Network
 
-The Power Distribution Network is decoupled using the standard method of
-"one capacitor per pin, all capacitors have the same value." The 5V rail,
-1.5 V rail and 1.2 V rail are decoupled using 1 uF capacitors, all 0603-sized,
-nothing unusual (but do note C44 is the output capacitor of the DC/DC
-converter).
+##### Overview
 
-The 3.3 V rail uses 470 nF capacitors and deserves more attention: C31-C35 are
-meant for power supply decoupling, and are 0603-sized. C71-C82 however, serve
-double duties, they are placed near vias to provide a continuous AC return path
-for signals travelling between layers ("plane stitching"), thus are 0402-sized
-to fit in the tight space near vias. Due to the higher number of capacitors for
-plane stitching, 470 nF capacitors are used to keep the total capacitance per
-rail under 10 uF, hopefully to stay within the USB spec.
+The Power Distribution Network is decoupled using the standard method of
+"one capacitor per pin, all capacitors have the same value."
+
+The 1.5 V rail and 1.2 V rail are decoupled using 1 uF capacitors, all
+0603-sized, nothing unusual (but do note C44 is the output capacitor of
+the DC/DC converter).
+
+The 3.3 V rail uses multiple (20+) 470 nF capacitors and deserves more
+attention: C31-C35 are meant for power supply decoupling, and are 0603-sized.
+C71-C82 however, serve double duties, they are placed near vias to provide a
+continuous AC return path for signals travelling between layers ("plane
+stitching"), thus are 0402-sized to fit in the tight space near vias. Due to
+the higher number of capacitors for plane stitching, smaller 470 nF capacitors
+are used to keep the total capacitance per rail under 10 uF to prevent inrush
+current.
+
+The 5 V rail requires special care, it's directly attached to the USB power
+input, thus will produce a huge inrush current, which should stay within the
+USB spec limits. Basically, the rules of the USB spec is:
+
+1. Inrush current less than 100 mA is always acceptable, it's only considered
+as an inrush event when 100 mA is exceeded.
+
+2. If an inrush event occurs, the maximal *charge* transfered, calculating by
+area under the current curve, should be less than 10 uC. For 5 V, it means the
+equivalent capacitance should be less than 10 uF. Only *charge* is limited, not
+inrush current itself, because the goal is to avoid draining the output
+capacitance at the upstream by too much, the absolute current is irrelevant (of
+course, unless it's low enough to apply rule No.1).
+
+3. If two inrush events are separated by 100 ms, they are considered as two
+separate events. Only the "biggest" inrush event is considered, all other
+events are ignored. Thus, it's possible to get more capacitance allowance
+by delayed startup.
+
+Measurements showed that the only significant inrush current of this development
+board is caused by capacitors at 5 V rail, other power rails produces almost no
+inrush current, presumably, the LDO and DC/DC's startup is "soft" enough.
+Moreover, the current capacitance on 5 V rail is rather conservative, only 5 uF,
+due to the delayed (100 ms+) startup of `+5V_SW` rail, the total capacitance
+allowed on the +5 V rail is effectively doubled, up to 20 uF. This should be
+adopted in the next revision (but 100 uF is still far-fetched, it's impossible
+unless complex power sequencing is introduced, so 20 uF should be a reasonable
+compromise).
+
+##### Capacitor Value Selection
 
 Finally, it should be noted that a 0.1 uF capacitor is traditionally seen as
 a "high-frequency capacitor" and is the prefered choice for power decoupling,
