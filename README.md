@@ -181,15 +181,6 @@ other power rails produces almost no inrush current.
 rails nor common-mode chokes for the signals. Electromagnetic compatibility
 and noise performance is limited.
 
-7. A 10 ppm, Cl=20pF quartz crystal is used because it's what I have from
-a previous project. Measurement on a spectrum analyzer (with crystal oven
-frequency standard) shows the actual frequency error is 45 ppm, and pullability
-is around -6.5 ppm/pF (tested by substitution, 18 pF loading capacitors). Thus,
-the load capacitance should be 6 pF above Cl. However, 27 pF capacitors are
-probably not a good idea, thus, a crystal with lower loading capacitance should
-be used instead. This finding is consistent with VL671 datasheet specification
-(Cl=12pF, C10=C11=18pF).
-
 For a development board, problem (4), (5) and (6) probably doesn't matter,
 but fixing them is still a good practice.
 
