@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 4
 Title "Main Schematic - VL670 Development Board"
 Date "2021-06-29"
-Rev "v0.01"
+Rev "v0.01-dev"
 Comp "Copyright (C) 2021 Tom Li (niconiconi)"
 Comment1 "https://creativecommons.org/publicdomain/zero/1.0/"
 Comment2 "the designer has waived all copyright and related or neighboring rights."
@@ -1864,7 +1864,7 @@ L Device:C_Small C8
 U 1 1 609AE51A
 P 8450 2750
 F 0 "C8" V 8400 2600 50  0000 C CNN
-F 1 "100nF" V 8400 2900 50  0000 C CNN
+F 1 "220nF" V 8400 2900 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 8450 2750 50  0001 C CNN
 F 3 "~" H 8450 2750 50  0001 C CNN
 	1    8450 2750
@@ -1875,7 +1875,7 @@ L Device:C_Small C7
 U 1 1 609AE13A
 P 8450 2550
 F 0 "C7" V 8400 2400 50  0000 C CNN
-F 1 "100nF" V 8400 2700 50  0000 C CNN
+F 1 "220nF" V 8400 2700 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 8450 2550 50  0001 C CNN
 F 3 "~" H 8450 2550 50  0001 C CNN
 	1    8450 2550
@@ -2036,4 +2036,6 @@ F 3 "" H 4050 6250 50  0001 C CNN
 	1    4050 6250
 	1    0    0    -1  
 $EndComp
+Text Notes 8050 2250 0    50   ~ 0
+C1//C5//C7 = 73 uF
 $EndSCHEMATC
