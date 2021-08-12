@@ -178,14 +178,14 @@ and vias should be used to reduce the thermal resistance, but it's ignored
 by this development board due to an oversight. The downstream port may enter
 thermal shutdown below the actual current limit.
 
-4. Capacitance at the downstream port is only 1 uF. Ideally it should be
+3. Capacitance at the downstream port is only 1 uF. Ideally it should be
 around 100 uF.
 
-6. The upstream and downstream USB ports have no ferrite beads for power
+4. The upstream and downstream USB ports have no ferrite beads for power
 rails nor common-mode chokes for the signals. Electromagnetic compatibility
 and noise performance is limited.
 
-For a development board, problem (4), (5) and (6) probably doesn't matter,
+For a development board, problem (2), (3) and (4) probably doesn't matter,
 but fixing them is still a good practice.
 
 ### Photos
