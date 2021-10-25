@@ -469,13 +469,13 @@ USB spec limits. Basically, the rules of the USB spec is:
 as an inrush event when 100 mA is exceeded.
 
 2. If an inrush event occurs, the maximal *charge* transfered, calculating by
-area under the current curve, should be less than 10 uC. For 5 V, it means the
+area under the current curve, should be less than 50 uC. For 5 V, it means the
 equivalent capacitance should be less than 10 uF. Only *charge* is limited, not
 inrush current itself, because the goal is to avoid draining the output
 capacitance at the upstream by too much, the absolute current is irrelevant (of
 course, unless it's low enough to apply rule No.1).
 
-3. If two inrush events are separated by 100 ms, they are considered as two
+3. If two inrush events are separated by 100+ us, they are considered as two
 separate events. Only the "biggest" inrush event is considered, all other
 events are ignored. Thus, it's possible to get more capacitance allowance
 by delayed startup.
@@ -484,7 +484,7 @@ Measurements showed that the only significant inrush current of this development
 board is caused by capacitors at 5 V rail, other power rails produces almost no
 inrush current, presumably, the LDO and DC/DC's startup is "soft" enough.
 Moreover, the current capacitance on 5 V rail is rather conservative, only 5 uF,
-due to the delayed (100 ms+) startup of `+5V_SW` rail, the total capacitance
+due to the delayed (100 us+) startup of `+5V_SW` rail, the total capacitance
 allowed on the +5 V rail is effectively doubled, up to 20 uF. This should be
 adopted in the next revision (but 100 uF is still far-fetched, it's impossible
 unless complex power sequencing is introduced, so 20 uF should be a reasonable
