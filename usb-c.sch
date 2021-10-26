@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 4
-Title "USB-C Schematic - VL670 Development Board"
-Date "2021-06-29"
-Rev "v0.01"
+Title "USB-C Schematic - VL670/671 Development Board"
+Date "2021-10-26"
+Rev "v0.02"
 Comp "Copyright (C) 2021 Tom Li (niconiconi)"
 Comment1 "https://creativecommons.org/publicdomain/zero/1.0/"
 Comment2 "the designer has waived all copyright and related or neighboring rights."
@@ -679,37 +679,4 @@ Wire Notes Line
 	9050 2650 10800 2650
 Wire Notes Line
 	9050 5500 10800 5500
-$Comp
-L power:GND #PWR?
-U 1 1 60DD4114
-P 5050 6800
-AR Path="/60C6101E/60DD4114" Ref="#PWR?"  Part="1" 
-AR Path="/60085564/60DD4114" Ref="#PWR0149"  Part="1" 
-F 0 "#PWR0149" H 5050 6550 50  0001 C CNN
-F 1 "GND" H 5055 6627 50  0000 C CNN
-F 2 "" H 5050 6800 50  0001 C CNN
-F 3 "" H 5050 6800 50  0001 C CNN
-	1    5050 6800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4900 6600 5050 6800
-Wire Wire Line
-	5200 6600 5050 6800
-Connection ~ 5050 6800
-Text Notes 3450 7100 0    50   ~ 0
-originally for HD3SS3320,\nnow deleted but keep it on\n board for stencil reuse.\n\nas a good practice, floating\ncopper pads grounded.\n\nyou can use them as\nprobe grounding points.
-$Comp
-L Device:R_US R13
-U 1 1 60DD411E
-P 5050 6600
-AR Path="/60085564/60DD411E" Ref="R13"  Part="1" 
-AR Path="/60C6101E/60DD411E" Ref="R?"  Part="1" 
-F 0 "R13" V 5000 6350 50  0000 C CNN
-F 1 "NC" V 5000 6800 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 5090 6590 50  0001 C CNN
-F 3 "~" H 5050 6600 50  0001 C CNN
-	1    5050 6600
-	0    1    1    0   
-$EndComp
 $EndSCHEMATC

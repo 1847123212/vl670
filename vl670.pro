@@ -1,4 +1,4 @@
-update=Tue Jun 29 13:16:09 2021
+update=Tue Oct 26 22:46:05 2021
 version=1
 last_client=kicad
 [general]
@@ -32,8 +32,11 @@ TrackWidth1=0.131318
 TrackWidth2=0.131318
 TrackWidth3=0.254
 TrackWidth4=0.508
+TrackWidth5=1
 ViaDiameter1=0.45
 ViaDrill1=0.2
+ViaDiameter2=1
+ViaDrill2=0.5
 dPairWidth1=0.131318
 dPairGap1=0.127
 dPairViaGap1=0.25
@@ -62,7 +65,7 @@ SolderMaskMinWidth=0
 SolderPasteClearance=0
 SolderPasteRatio=-0
 [pcbnew/Layer.F.Cu]
-Name=B.Cu
+Name=F.Cu
 Type=0
 Enabled=1
 [pcbnew/Layer.In1.Cu]
@@ -186,7 +189,7 @@ Name=In30.Cu
 Type=0
 Enabled=0
 [pcbnew/Layer.B.Cu]
-Name=F.Cu
+Name=B.Cu
 Type=0
 Enabled=1
 [pcbnew/Layer.B.Adhes]
@@ -264,7 +267,7 @@ dPairViaGap=0.25
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
-PlotDirectoryName=
+PlotDirectoryName=schematics/
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=Pcbnew
