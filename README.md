@@ -1,6 +1,13 @@
 VL670/VL671 Development Board - USB 2.0 to 3.0 Transaction Translator
 ======================================================================
 
+### Revision
+
+This is version v0.02.
+
+The original v0.01 design is obsolete, but it's still
+[available here](https://notabug.org/niconiconi/vl670/src/v0.01).
+
 ### Introduction
 
 #### The Problem
