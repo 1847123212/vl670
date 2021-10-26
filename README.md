@@ -371,6 +371,18 @@ orientation of the Type-C plug as soon as a Type-C cable is plugged in.
 The demultiplexed signal is simply called `TX+`, `TX-`, `RX+`, `RX-`,
 just like the signal coming out from a traditional USB 3.0 Type-B connector.
 
+##### DC Biasing
+
+The `TX-` and `TX+` pins on the HD3SS3220 can only tolerate a common-mode
+DC voltage below 2 V. But VL67x's common-mode DC voltage at SSTX is 2.2 V. Two
+extra capacitors, C5 and C6 are needed in this particular design to prevent
+VL67x's DC bias from reaching HD3SS3220.
+
+Simultaneously, HD3SS3220 won't work without a DC bias at the `TX-` and `TX+`
+pins. Thus, R16 and R17 are needed to reestablish a DC operating point. 0 V
+is acceptable, thus both are pulled down to GND. The resistors are unnecessary
+without HD3SS3220.
+
 #### SPI Debugging and Programming
 
 An SPI pin header (`J3`) is provided at the top right of the board. The header is
