@@ -1,5 +1,5 @@
-VL670 Development Board - USB 2.0 to 3.0 Transaction Translator
-===============================================================
+VL670/VL671 Development Board - USB 2.0 to 3.0 Transaction Translator
+======================================================================
 
 ### Introduction
 
@@ -35,17 +35,17 @@ Thus, in some non-standard custom systems, only a USB 3.0 link is
 physically available.
 
 For home and office users, both limitations may not be a problem,
-but for hardware developers who work with custom systems, this can
-be problematic.
+but for hardware developers and experimenters who work with custom
+systems, this can be problematic.
 
-#### VL670 Transaction Translator
+#### VL670/VL671 Transaction Translator
 
-The VL670 is a specialized ASIC developed by VIA Labs, Inc., it's a USB 2.0
-to USB 3.0 *transaction translator*, in other words, it translates the legacy
-USB 2.0 traffic and transparently upgrades the device to an emulated USB 3.0
-SuperSpeed device, enabling a legacy USB 2.0 device to make use of USB 3.0.
-By transparently upgrading a legacy USB 2.0 device to USB 3.0, both problems
-are eliminated.
+The VL670/671 is a specialized ASIC developed by VIA Labs, Inc., it's a USB
+2.0 to USB 3.0 *transaction translator*, in other words, it translates the
+legacy USB 2.0 traffic and transparently upgrades the device to an USB 3.0
+SuperSpeed device by emulation, enabling a legacy USB 2.0 device to make use
+of USB 3.0. By transparently upgrading a legacy USB 2.0 device to an emulated
+USB 3.0 device, both problems are eliminated.
 
 This is not a perfect solution, first, it's technically a violation of the
 USB standards, also device compatibility is limited. Nevertheless, it's
@@ -72,35 +72,48 @@ used as a part or subassembly in any finished product.
 
 #### Generations
 
-VL670 is already obsolete. The second generation is VL671. <del>However, this
-development board only supports VL670.</del> My test showed that VLI's advertisement
-is true - VL671 is highly compatible with VL670, this development board can
-also be used for VL671, the only modification needed is a single wire for the LED.
+VL670 is already obsolete. The second generation is VL671. This development board
+supports both VL670 and VL671, and the use of VL671 is strongly recommended (though
+not without its own problems).
 
-Note that VL671 uses a different firmware and has some behavioral differences,
-such as LED status, compatibility, and USB negotiation. The description below only
-applies to VL670.
-
-A new version of the board is work-in-progress and should be ready in the
-following month, both chips will be officially supported.
+Both chips are highly compatibile, the only modification needed is a single LED
+output.  If VL670 is used, solder resistor `R9`, otherwise, solder resistor `R13`.
 
 ### Usage
 
 #### LED Status
 
-* Blink: Initial power-on reset, or a USB 2.0 device has just connected.
+##### D2
 
-* On: A USB 2.0 device has just connected and its traffic is being
-translated to USB 3.0 traffic by VL670, or the processor is being held
-in reset by the SPI header.
+* On: A USB 2.0 device has just connected and its traffic is being translated
+to USB 3.0 traffic by VL67x (*VL670 only, not on VL671: or the processor is being
+held in reset by the SPI header*).
 
 * Off: A USB 3.0 or 2.0 device is connected and its traffic is passing
 through VL670 as-is without any translation.
+
+* Blink: Initial power-on reset, or a USB 2.0 device has just connected (*VL670
+only, not on VL671*).
+
+##### D20
+
+* On: The power rail `+5V_SW` for downstream USB-A port is switched on.
+Normally, this LED should be always on.
+
+* Off: The power rail `+5V_SW` for downstream USB-A port is switched off.
+This indicates the power supply circuit is malfunctional. First, check the
+`5V` input, and whether the downstream USB port has a short circuit. Then,
+check the USB power switch chip `U4` and pull-down resistor R15.
 
 #### Voltage Level
 
 All I/O are 3.3 V LVCMOS. Applying 5 V TTL level can damage the VL670,
 its SPI flash, or both.
+
+Before reading or writing to the Flash via SPI, the 5V power must also be
+applied via the USB cable or the pin header. Attempting to program the SPI
+Flash with an external programming without applying 5V power can damage
+components.
 
 #### SPI header
 
@@ -120,8 +133,8 @@ Programming* and schematics.
 #### GPIO header
 
 All GPIO pin header is located at the top left of the board, exposing all
-GPIOs of VL670. Nevertheless, their functionality is unclear and it's only
-useful for reverse engineering.
+GPIOs of VL67x. Nevertheless, their functionality is unclear and it's
+only useful for reverse engineering.
 
 For more information, see *Theory of Operation*, section *Oddities* and
 schematics.
@@ -134,7 +147,7 @@ schematics.
 is detected, thus forcing the chip to enter USB 2.0 passthrough mode. This
 is working by design and it's not a bug, however, it may cause misleading
 or confusing behaviors, thus, `R1` and `R2` are removed by default, forcing
-VL670 to always work in transaction translator mode.
+VL67x to always work in transaction translator mode.
 
 2. In VL670, USB 3.0 passthrough is not reliable and it's not compatible
 with some devices, this is a VL670 limitation. In VL671, USB 3.0 passthrough
@@ -158,7 +171,12 @@ I recommend using a pure USB 2.0 hub to completely isolate the USB 3 signals.
     bug). Since USB 3 passthrough is already broken enough and adding either
     solution makes the project more complicated, I choose not to do it.
 
-3. Not all devices are supported by the transaction translator. Sometimes
+3. The upstream and downstream USB ports have no common-mode chokes for
+the signals. Electromagnetic compatibility performance is limited. This
+is an intentional decision, since adding them reduces the USB 3 link
+budget needed for the already problematic USB 3 passthrough mode.
+
+4. Not all devices are supported by the transaction translator. Sometimes
 the incompatibility is a hardware or protocol limitation, other times it
 can be a driver problem - many drivers make certain assumptions of the USB
 device, which may no longer be true after the device is emulated by VL670
@@ -167,33 +185,11 @@ as a SuperSpeed device.
     * USB Attached SCSI (UAS) doesn't work in transaction translator mode.
     But it can be disabled at the device driver of the operating system.
 
-#### Bugs
-
-1. Somewhat unstable power-on behavior. It's recommended to first power
-the device on, then attach the downstream devices. Seems to be a problem
-related to firmware.
-
-2. TPS2061C (U4) has unsatisfactory PCB layout, ideally large copper pours
-and vias should be used to reduce the thermal resistance, but it's ignored
-by this development board due to an oversight. The downstream port may enter
-thermal shutdown below the actual current limit.
-
-3. Capacitance at the downstream port is only 1 uF. Ideally it should be
-around 100 uF, but it's not realizable due to inrush current consideration.
-Nevertheless, 20 uF should be possible.
-
-4. The upstream and downstream USB ports have no ferrite beads for power
-rails nor common-mode chokes for the signals. Electromagnetic compatibility
-and noise performance is limited.
-
-For a development board, problem (2), (3) and (4) probably doesn't matter,
-but fixing them is still a good practice.
-
-### Photos
+### Images
 
 #### Front and Back of the PCB
 
-![Front and Back of the PCB](https://notabug.org/niconiconi/vl670/raw/main/photos/board1.jpg)
+![Front and Back of the PCB](https://notabug.org/niconiconi/vl670/raw/main/photos/pcb_render.png)
 
 ### Schematics
 
@@ -280,36 +276,37 @@ firmware instead.
 
 #### Overview
 
-The heart of the development board is the VL670 controller (`U2`). It has two USB
+The heart of the development board is the VL67x controller (`U2`). It has two USB
 interfaces on both sides of the chip. The left side is the host side, connnected
 to a computer via a USB 3.0 Type-C port (`J2`), the right side is connected to
 the device side, via a USB 3.0 Type-A port. All the transaction translation
-magic is performed internally by VL670.
+magic is performed internally by VL67x.
 
 When a USB Type-C cable is plugged into the development board, 5 V power is
 applied to the board by the host, the decoupling capacitors on the 5 V rail
 starts charging up. Shortly after the 5 V rail settles, the internal power
-converters inside the VL670 controller (`U2`) are activated. They are a 3.3 V
+converters inside the VL67x controller (`U2`) are activated. They are a 3.3 V
 LDO, a 1.5 V DC/DC, and a 1.2 V LDO converter, generating the three power rails
-for VL670, the SPI Flash (`U6`), and the SPI multiplexers (`U3` and `U5`).
+for VL670 (on VL671, the 1.5 V & 1.2 V is merged into a single 1.2 V DC/DC
+converter), the SPI Flash (`U6`), and the SPI multiplexers (`U3` and `U5`).
 
-When 3.3 V is ready, after approximately 24 milliseconds, the VL670 controller
-(`U2`) leaves the power-on reset state, timed by the RC circuit `R4` and `C13`,
-and the processor core inside VL670 starts operating. VL670 fetches firmware
-code from the Flash chip GD25D05 (`U6`) via the SPI bus.
+When 3.3 V is ready, the VL67x controller (`U2`) leaves the power-on reset
+state, timed by the RC circuit `R4` and `C13`, and the processor core inside
+VL67x starts operating. VL67x fetches firmware code from the Flash chip GD25D05
+(`U6`) via the SPI bus.
 
 Meanwhile, back to USB (`J2`), at the host side, the incoming 3.0 signal lines from
 the Type-C cable is demultiplexed by the USB Type-C controller HD3SS3220 (`U1`)
 by selecting the correct signal pairs based on the orientation of the Type-C
 plug. It occurs almost as soon as the USB cable is plugged in. On the other hand,
 the USB 2 signals are shorted together and don't require active demultiplexing.
-At this point, VL670 gains access to both USB 3.0 and USB 2.0 signals at the
+At this point, VL67x gains access to both USB 3.0 and USB 2.0 signals at the
 host side.
 
-Strictly speaking, only the USB 3.0 signals are required since VL670 is a
+Strictly speaking, only the USB 3.0 signals are required since VL67x is a
 transaction translator that converts all USB 2.0 traffic to USB 3.0 transparently.
 The USB 2.0 differential pair at the host side is only for compatibility -
-if one plugs the board into a USB 2.0 port, VL670 disables transaction and enters
+if one plugs the board into a USB 2.0 port, VL67x disables transaction and enters
 USB 2.0 passthrough mode. Because this fallback behavior can confuse the developer
 (e.g. for example, if the USB 3.0 cable is defective and the chip always enters
 USB 2.0 passthrough mode), optional jumpers, `R1` and `R2`, are installed on the
@@ -317,11 +314,11 @@ the USB 2.0 signal lines. USB 2.0 is disconnected completely when the resistors
 are removed to simulate a nonstandard, pure USB 3.0 host port without USB 2.0
 connection.
 
-Once the firmware in VL670 decides that it's ready, `/DN_PWREN` (pin 37) outputs
+Once the firmware in VL67x decides that it's ready, `/DN_PWREN` (pin 37) outputs
 a logical `0`, enabling power switch TPS2061C (`U4`) to provide 5 V power (called
 `+5V_SW`, for "switched 5 V") to the downstream, device-side USB port (`J4`).
 TPS2061C also provides soft-start and short-circuit protection. At this point,
-VL670 is ready to accept a USB device.
+VL67x is ready to accept a USB device.
 
 At the device side, `DN_D-`, `DN_D+`, `DN_USB3RX-`, `DN_USB3RX+`, `DN_USB3TX-`,
 `DN_USB3TX+` are connected to a USB Type-A port.
@@ -329,18 +326,18 @@ At the device side, `DN_D-`, `DN_D+`, `DN_USB3RX-`, `DN_USB3RX+`, `DN_USB3TX-`,
 When a USB device is plugged in to the USB-A connector (`J4`)...
 
 * If it's a USB 2.0 device and if USB 3.0 is available at the host side, the
-USB 2.0 traffic is translated to USB 3.0 traffic by VL670. The host should
-detect a USB 3.0 SuperSpeed device. The translation is transparent, VL670
+USB 2.0 traffic is translated to USB 3.0 traffic by VL67x. The host should
+detect a USB 3.0 SuperSpeed device. The translation is transparent, VL67x
 itself is invisible to the host, only the device is.
 
-* If only USB 2.0 is available at the host, VL670 enters USB 2.0 passthrough
+* If only USB 2.0 is available at the host, VL67x enters USB 2.0 passthrough
 mode for all USB 2.0 or USB 3.0 devices, without translation. The host should
 detect a USB 2.0 device. This mode is also entered if the USB 3.0 at the host
 side has failed. A defective cable is a common cause, but inserting the USB
 Type-C cable extremely slowly has the same effect. Removing `R1` and `R2` to
 disable USB 2.0 at the host completely can avoid this confusing situation.
 
-* If both the host and device support USB 3.0, VL670 enters passthrough mode
+* If both the host and device support USB 3.0, VL67x enters passthrough mode
 without translation.
 
 #### USB Type-C and HD3SS3220
@@ -370,17 +367,17 @@ just like the signal coming out from a traditional USB 3.0 Type-B connector.
 #### SPI Debugging and Programming
 
 An SPI pin header (`J3`) is provided at the top right of the board. The header is
-directly connected to the signal lines between the VL670 controller and the
+directly connected to the signal lines between the VL67x controller and the
 GD25D05 (`U6`) SPI Flash, allowing one to attach a logic analyzer to monitor the
 bus while the controller is running.
 
 To allow a developer to read or write the Flash via SPI directly without a
-potentially destructive bus contention, VL670's SPI bus is gated by two
+potentially destructive bus contention, VL67x's SPI bus is gated by two
 74LVC2G66 CMOS analog switches (`U3` and `U5`). When the `/EN` (a.k.a `ISP_ENABLE`)
 pin of the pin header is grounded (by bridging pin 6 and 7 on the pin header),
 the processor is cut off from the SPI bus, giving the SPI pin header exclusive
 access to the Flash. The `/EN` signal is also directly connected to the `/RESET`
-signal of VL670 to halt the processor.
+signal of VL67x to halt the processor.
 
 #### External Power
 
@@ -402,17 +399,33 @@ Due to OEM firmware differences, some pins do different things than what
 they were intended to do. These differences were obtained via hardware
 reverse engineering.
 
+##### GPIO
+
+* `GPIO1_3 / DN_PWREN` is meant to be an `/ENABLE` signal to the downstream
+USB port, but it seems to be high-impedance and unused by the firmware. Thus,
+the USB power switch U2 is optional and can be removed. Its only purpose is
+short circuit protection.
+
+##### USB 3 Passthrough
+
 The reverse-engineered hardware uses a slightly different topology -
-VL670 is attached to an upstream USB 3.0 hub as a subdevice, and only
+VL67x is attached to an upstream USB 3.0 hub as a subdevice, and only
 USB 2.0 signals are wired to the downstream VL670, the USB 3.0 signals
 are directly wired to the upstream hub. This can be understood as an
 attempt to improve compatibility. In my tests, I found the USB 3.0
 passthrough offered by VL670 is not always reliable and some devices
-cannot be used. Thus, wiring the USB 3.0 signal directly to the host
-via a USB 3.0 hub is beneficial.
+cannot be used, and on VL671 it's essentially broken due to firmware
+limitations. Furthur, because the USB 3 signal path is doubled in
+passthrough mode, it completely breaks the USB link budget, any cable
+longer than 50 centimeters may cause enumeration failures.
 
-* `GPIO1_3 / DN_PWREN` is meant to be an `/ENABLE` signal to the downstream
-USB port, but it seems to be high-impedance.
+Thus, passthrough mode should be avoided. Wiring the USB 3.0 signal
+directly to the host via a USB 3.0 hub is beneficial.
+
+For simplicity, this is not implemented on this development board. But
+it's necessary for a finished product.
+
+##### VL670 GPIO
 
 * `GPIO1_2 / GPIO_TP3` is officially unused, but the OEM firmware uses it as
 an input for deciding whether to enable VL670. On this development board, this
@@ -461,6 +474,8 @@ the higher number of capacitors for plane stitching, smaller 470 nF capacitors
 are used to keep the total capacitance per rail under 10 uF to prevent inrush
 current.
 
+##### USB Inrush Current
+
 The 5 V rail requires special care, it's directly attached to the USB power
 input, thus will produce a huge inrush current, which should stay within the
 USB spec limits. Basically, the rules of the USB spec is:
@@ -485,10 +500,18 @@ board is caused by capacitors at 5 V rail, other power rails produces almost no
 inrush current, presumably, the LDO and DC/DC's startup is "soft" enough.
 Moreover, the current capacitance on 5 V rail is rather conservative, only 5 uF,
 due to the delayed (100 us+) startup of `+5V_SW` rail, the total capacitance
-allowed on the +5 V rail is effectively doubled, up to 20 uF. This should be
-adopted in the next revision (but 100 uF is still far-fetched, it's impossible
-unless complex power sequencing is introduced, so 20 uF should be a reasonable
-compromise).
+allowed on the +5 V rail is effectively doubled, up to 20 uF (effectively 10 uF
+due to ceramic capacitance loss under DC bias, giving us some extra headroom).
+
+##### Ferrite Resonance and Damping
+
+A ferrite choke, FB1, is used in series of the 5 V input at the USB port to
+filter high-frequency noise. However, its series inductance, when combined
+with parallel capacitance, forms a parallel LC circuit on the 5V rail. This
+creates a huge impedance spike at the resonance frequency. If this frequency
+is excited by noise, it create a huge noise voltage. To reduce its impact,
+two small 0.5-ohm resistors are connected in series with the ceramic capacitors,
+C19 and C20.
 
 ##### Capacitor Value Selection
 
