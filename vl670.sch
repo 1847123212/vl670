@@ -695,9 +695,9 @@ Wire Wire Line
 Wire Wire Line
 	3400 2300 3950 2300
 Text Label 3950 3500 0    50   ~ 0
-SSRX_DC-
+SSTX_DC-
 Text Label 3950 3600 0    50   ~ 0
-SSRX_DC+
+SSTX_DC+
 Text Label 3950 3100 0    50   ~ 0
 D_DC-
 Text Label 7400 3600 0    50   ~ 0
@@ -1280,9 +1280,9 @@ $EndComp
 Wire Wire Line
 	9100 3500 9100 3550
 Text Label 3950 3400 0    50   ~ 0
-SSTX+
+SSRX+
 Text Label 3950 3300 0    50   ~ 0
-SSTX-
+SSRX-
 Text Label 3950 3200 0    50   ~ 0
 D_DC+
 Wire Wire Line
@@ -1369,10 +1369,6 @@ Text Notes 2450 6750 0    50   ~ 0
 C44 MUST be close to L1
 Text Notes 900  6750 0    50   ~ 0
 close to VL670, one per pin
-Wire Wire Line
-	3750 3300 5250 3300
-Wire Wire Line
-	3650 3400 5250 3400
 $Comp
 L Device:C_Small C11
 U 1 1 5F845F1B
@@ -2078,17 +2074,6 @@ Wire Notes Line
 	700  600  700  1250
 Wire Notes Line
 	4300 600  4300 1250
-$Comp
-L Connector:USB3_B J2
-U 1 1 617F0239
-P 1000 2550
-F 0 "J2" H 1057 3267 50  0000 C CNN
-F 1 "USB3_B" H 1057 3176 50  0000 C CNN
-F 2 "vl670:USB3_B_XKB_U235-091N-4BLRC16-4-5" H 1150 2650 50  0001 C CNN
-F 3 "~" H 1150 2650 50  0001 C CNN
-	1    1000 2550
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3000 2300 2850 2350
 $Comp
@@ -2148,9 +2133,9 @@ Wire Wire Line
 Wire Wire Line
 	1000 3350 900  3350
 Text Label 1500 2950 0    50   ~ 0
-SSRX-
+SSTX-
 Text Label 1500 3050 0    50   ~ 0
-SSRX+
+SSTX+
 Wire Wire Line
 	2200 800  2200 850 
 Text Label 1500 2350 0    50   ~ 0
@@ -2174,24 +2159,11 @@ Wire Wire Line
 Wire Wire Line
 	3450 3100 3350 3100
 $Comp
-L Device:C_Small C1
-U 1 1 6188E9E7
-P 3250 2900
-AR Path="/6188E9E7" Ref="C1"  Part="1" 
-AR Path="/60085564/6188E9E7" Ref="C?"  Part="1" 
-F 0 "C1" V 3200 2750 50  0000 C CNN
-F 1 "220nF" V 3200 3050 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 3250 2900 50  0001 C CNN
-F 3 "~" H 3250 2900 50  0001 C CNN
-	1    3250 2900
-	0    1    1    0   
-$EndComp
-$Comp
 L Device:C_Small C2
-U 1 1 6188E9E1
+U 1 1 6188E9E7
 P 3250 3100
-AR Path="/6188E9E1" Ref="C2"  Part="1" 
-AR Path="/60085564/6188E9E1" Ref="C?"  Part="1" 
+AR Path="/6188E9E7" Ref="C2"  Part="1" 
+AR Path="/60085564/6188E9E7" Ref="C?"  Part="1" 
 F 0 "C2" V 3200 2950 50  0000 C CNN
 F 1 "220nF" V 3200 3250 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 3250 3100 50  0001 C CNN
@@ -2199,14 +2171,23 @@ F 3 "~" H 3250 3100 50  0001 C CNN
 	1    3250 3100
 	0    1    1    0   
 $EndComp
+$Comp
+L Device:C_Small C1
+U 1 1 6188E9E1
+P 3250 2900
+AR Path="/6188E9E1" Ref="C1"  Part="1" 
+AR Path="/60085564/6188E9E1" Ref="C?"  Part="1" 
+F 0 "C1" V 3200 2750 50  0000 C CNN
+F 1 "220nF" V 3200 3050 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 3250 2900 50  0001 C CNN
+F 3 "~" H 3250 2900 50  0001 C CNN
+	1    3250 2900
+	0    1    1    0   
+$EndComp
 Wire Wire Line
 	3000 2950 3100 2900
 Wire Wire Line
 	3000 3050 3100 3100
-Wire Wire Line
-	3550 3500 5250 3500
-Wire Wire Line
-	3450 3600 5250 3600
 $Comp
 L vl670:ESD7104 D1
 U 1 1 619DB924
@@ -2226,14 +2207,6 @@ Wire Wire Line
 	1900 3150 1900 2350
 Wire Wire Line
 	1800 3150 1800 2450
-Wire Wire Line
-	2550 3150 2550 2650
-Wire Wire Line
-	2450 3150 2450 2750
-Wire Wire Line
-	2850 3150 2850 2950
-Wire Wire Line
-	2750 3150 2750 3050
 Connection ~ 2100 2150
 Connection ~ 1800 2450
 Wire Wire Line
@@ -2241,26 +2214,6 @@ Wire Wire Line
 Connection ~ 1900 2350
 Wire Wire Line
 	1900 2350 2850 2350
-Connection ~ 2450 2750
-Wire Wire Line
-	2450 2750 3650 2750
-Connection ~ 2550 2650
-Wire Wire Line
-	2550 2650 3750 2650
-Connection ~ 2750 3050
-Wire Wire Line
-	2750 3050 3000 3050
-Connection ~ 2850 2950
-Wire Wire Line
-	2850 2950 3000 2950
-Wire Wire Line
-	1500 2950 2850 2950
-Wire Wire Line
-	1500 3050 2750 3050
-Wire Wire Line
-	1500 2650 2550 2650
-Wire Wire Line
-	1500 2750 2450 2750
 Wire Wire Line
 	1500 2450 1800 2450
 Wire Wire Line
@@ -2277,4 +2230,59 @@ Wire Wire Line
 Connection ~ 2200 2150
 Wire Wire Line
 	2200 2150 2200 3150
+$Comp
+L vl670:USB3_B J2
+U 1 1 61885314
+P 1000 2550
+F 0 "J2" H 1057 3267 50  0000 C CNN
+F 1 "USB3_B" H 1057 3176 50  0000 C CNN
+F 2 "vl670:USB3_B_XKB_U235-091N-4BLRC16-4-5" H 1150 2650 50  0001 C CNN
+F 3 "~" H 1150 2650 50  0001 C CNN
+	1    1000 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1500 3050 2450 3050
+Wire Wire Line
+	1500 2650 2850 2650
+Wire Wire Line
+	1500 2750 2750 2750
+Wire Wire Line
+	2450 3150 2450 3050
+Connection ~ 2450 3050
+Wire Wire Line
+	2550 3150 2550 2950
+Wire Wire Line
+	1500 2950 2550 2950
+Connection ~ 2550 2950
+Wire Wire Line
+	2450 3050 3000 3050
+Wire Wire Line
+	2550 2950 3000 2950
+Wire Wire Line
+	2750 3150 2750 2750
+Connection ~ 2750 2750
+Wire Wire Line
+	2750 2750 3650 2750
+Wire Wire Line
+	2850 3150 2850 2650
+Connection ~ 2850 2650
+Wire Wire Line
+	2850 2650 3750 2650
+Wire Wire Line
+	3550 3500 5100 3500
+Wire Wire Line
+	3450 3600 5100 3600
+Wire Wire Line
+	5100 3600 5250 3500
+Wire Wire Line
+	5100 3500 5250 3600
+Wire Wire Line
+	3750 3300 5100 3300
+Wire Wire Line
+	3650 3400 5100 3400
+Wire Wire Line
+	5100 3300 5250 3400
+Wire Wire Line
+	5100 3400 5250 3300
 $EndSCHEMATC

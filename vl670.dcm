@@ -58,6 +58,12 @@ K switch analog SPDT
 F http://www.ti.com/lit/ds/symlink/ts3a24159.pdf
 $ENDCMP
 #
+$CMP USB3_B
+D USB 3.0 B connector
+K usb universal serial bus
+F ~
+$ENDCMP
+#
 $CMP USB_C_Receptacle
 D USB Full-Featured Type-C Receptacle connector
 K usb universal serial bus type-C full-featured
