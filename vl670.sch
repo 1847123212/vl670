@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 4
+Sheet 1 3
 Title "Main Schematic - VL670/671 Development Board"
 Date "2021-10-26"
 Rev "v0.02"
@@ -645,10 +645,6 @@ F 3 "" H 2100 4250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2100 4350 2100 4250
-Wire Wire Line
-	5100 3500 5250 3600
-Wire Wire Line
-	5100 3600 5250 3500
 $Comp
 L Device:R_US R2
 U 1 1 6027F301
@@ -657,7 +653,7 @@ F 0 "R2" V 3200 2300 50  0000 C CNN
 F 1 "0R" V 3200 2600 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 3290 2440 50  0001 C CNN
 F 3 "~" H 3250 2450 50  0001 C CNN
-F 4 "NC" V 3350 2450 50  0000 C CNN "Install"
+F 4 "NC" V 3200 2800 50  0000 C CNN "Install"
 	1    3250 2450
 	0    1    1    0   
 $EndComp
@@ -669,95 +665,21 @@ F 0 "R1" V 3200 2150 50  0000 C CNN
 F 1 "0R" V 3200 2450 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 3290 2290 50  0001 C CNN
 F 3 "~" H 3250 2300 50  0001 C CNN
-F 4 "NC" V 3150 2300 50  0000 C CNN "Install"
+F 4 "NC" V 3200 2650 50  0000 C CNN "Install"
 	1    3250 2300
 	0    1    1    0   
 $EndComp
-Connection ~ 1000 4250
-Wire Wire Line
-	700  4250 1000 4250
-Wire Wire Line
-	700  4150 700  4250
-Wire Wire Line
-	1000 4150 1000 4250
 $Comp
 L power:GND #PWR0106
 U 1 1 60464693
-P 1000 4250
-F 0 "#PWR0106" H 1000 4000 50  0001 C CNN
-F 1 "GND" H 1150 4200 50  0000 C CNN
-F 2 "" H 1000 4250 50  0001 C CNN
-F 3 "" H 1000 4250 50  0001 C CNN
-	1    1000 4250
+P 900 3800
+F 0 "#PWR0106" H 900 3550 50  0001 C CNN
+F 1 "GND" H 900 3650 50  0000 C CNN
+F 2 "" H 900 3800 50  0001 C CNN
+F 3 "" H 900 3800 50  0001 C CNN
+	1    900  3800
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1600 2300 2150 2300
-Wire Wire Line
-	1600 2100 2150 2100
-NoConn ~ 1600 3850
-NoConn ~ 1600 3750
-$Sheet
-S 2150 1450 850  2500
-U 60085564
-F0 "USB AC CAP/ESD/MUX" 50
-F1 "usb-c.sch" 50
-F2 "CC1" I L 2150 1750 50 
-F3 "CC2" I L 2150 1850 50 
-F4 "D1-" I L 2150 2100 50 
-F5 "D1+" I L 2150 2300 50 
-F6 "RX1-" I L 2150 2550 50 
-F7 "RX1+" I L 2150 2650 50 
-F8 "TX1-" I L 2150 2850 50 
-F9 "TX1+" I L 2150 2950 50 
-F10 "RX2-" I L 2150 3150 50 
-F11 "RX2+" I L 2150 3250 50 
-F12 "TX2-" I L 2150 3450 50 
-F13 "TX2+" I L 2150 3550 50 
-F14 "D-" O R 3000 2300 50 
-F15 "D+" O R 3000 2450 50 
-F16 "RX-" O R 3000 2650 50 
-F17 "RX+" O R 3000 2750 50 
-F18 "TX-" O R 3000 2950 50 
-F19 "TX+" O R 3000 3050 50 
-$EndSheet
-Wire Wire Line
-	1600 2650 2150 2650
-Wire Wire Line
-	1600 2550 2150 2550
-Wire Wire Line
-	1600 2300 1600 2350
-Connection ~ 1600 2300
-Wire Wire Line
-	1600 1850 2150 1850
-Wire Wire Line
-	1600 1750 2150 1750
-Wire Wire Line
-	1600 2100 1600 2150
-Connection ~ 1600 2100
-Wire Wire Line
-	1600 2250 1600 2300
-Wire Wire Line
-	1600 2050 1600 2100
-$Comp
-L Connector:USB_C_Receptacle J2
-U 1 1 6001F703
-P 1000 2550
-F 0 "J2" H 1050 3800 50  0000 C CNN
-F 1 "USB_C_Receptacle" H 1050 3700 50  0000 C CNN
-F 2 "vl670:USB_C_Receptacle_XKB_U262-241N-4BV60" H 1150 2550 50  0001 C CNN
-F 3 "https://www.usb.org/sites/default/files/documents/usb_type-c.zip" H 1150 2550 50  0001 C CNN
-	1    1000 2550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3550 3500 3550 2950
-Wire Wire Line
-	3550 3500 5100 3500
-Wire Wire Line
-	3650 2750 3650 3400
-Wire Wire Line
-	3750 3300 3750 2650
 Wire Wire Line
 	3850 2450 3850 3200
 Wire Wire Line
@@ -769,21 +691,15 @@ Wire Wire Line
 Wire Wire Line
 	3000 2300 3100 2300
 Wire Wire Line
-	3000 2450 3100 2450
-Wire Wire Line
-	3000 2750 3650 2750
-Wire Wire Line
-	3000 2650 3750 2650
-Wire Wire Line
 	3400 2450 3850 2450
 Wire Wire Line
 	3400 2300 3950 2300
 Text Label 3950 3500 0    50   ~ 0
-SSTX_DEMUX-
+SSRX_DC-
 Text Label 3950 3600 0    50   ~ 0
-SSTX_DEMUX+
+SSRX_DC+
 Text Label 3950 3100 0    50   ~ 0
-D_DEMUX-
+D_DC-
 Text Label 7400 3600 0    50   ~ 0
 DN_SSTX+
 Text Label 7400 3500 0    50   ~ 0
@@ -980,36 +896,36 @@ Wire Wire Line
 $Comp
 L Jumper:SolderJumper_2_Bridged JP2
 U 1 1 61CB65FE
-P 2550 850
-F 0 "JP2" H 2550 1000 50  0000 C CNN
-F 1 "SolderJumper_2_Bridged" H 2550 964 50  0001 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm" H 2550 850 50  0001 C CNN
-F 3 "~" H 2550 850 50  0001 C CNN
-	1    2550 850 
+P 2850 850
+F 0 "JP2" H 2850 1000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 2850 964 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm" H 2850 850 50  0001 C CNN
+F 3 "~" H 2850 850 50  0001 C CNN
+	1    2850 850 
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR0165
 U 1 1 61D2B1F8
-P 2900 800
-F 0 "#PWR0165" H 2900 650 50  0001 C CNN
-F 1 "+5V" H 3000 900 50  0000 C CNN
-F 2 "" H 2900 800 50  0001 C CNN
-F 3 "" H 2900 800 50  0001 C CNN
-	1    2900 800 
+P 3200 800
+F 0 "#PWR0165" H 3200 650 50  0001 C CNN
+F 1 "+5V" H 3300 900 50  0000 C CNN
+F 2 "" H 3200 800 50  0001 C CNN
+F 3 "" H 3200 800 50  0001 C CNN
+	1    3200 800 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2900 850  2900 800 
+	3200 850  3200 800 
 $Comp
 L power:+5VP #PWR0167
 U 1 1 61F9EB8B
-P 1950 800
-F 0 "#PWR0167" H 1950 650 50  0001 C CNN
-F 1 "+5VP" H 1800 900 50  0000 C CNN
-F 2 "" H 1950 800 50  0001 C CNN
-F 3 "" H 1950 800 50  0001 C CNN
-	1    1950 800 
+P 2200 800
+F 0 "#PWR0167" H 2200 650 50  0001 C CNN
+F 1 "+5VP" H 2050 900 50  0000 C CNN
+F 2 "" H 2200 800 50  0001 C CNN
+F 3 "" H 2200 800 50  0001 C CNN
+	1    2200 800 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -1074,8 +990,6 @@ Wire Notes Line
 	700  600  4300 600 
 Wire Notes Line
 	700  1250 4300 1250
-Wire Wire Line
-	1600 1550 1950 1550
 Wire Wire Line
 	6500 1900 6500 1800
 Wire Wire Line
@@ -1169,24 +1083,6 @@ F 3 "~" H 7950 4200 50  0001 C CNN
 	1    7950 4200
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	3000 2950 3550 2950
-Wire Wire Line
-	3450 3050 3000 3050
-Wire Wire Line
-	3450 3050 3450 3600
-Wire Wire Line
-	1600 2850 2150 2850
-Wire Wire Line
-	1600 2950 2150 2950
-Wire Wire Line
-	1600 3450 2150 3450
-Wire Wire Line
-	1600 3550 2150 3550
-Wire Wire Line
-	1600 3250 2150 3250
-Wire Wire Line
-	1600 3150 2150 3150
 Wire Notes Line
 	2200 5500 3750 5500
 Wire Notes Line
@@ -1384,11 +1280,11 @@ $EndComp
 Wire Wire Line
 	9100 3500 9100 3550
 Text Label 3950 3400 0    50   ~ 0
-SSRX_DEMUX+
+SSTX+
 Text Label 3950 3300 0    50   ~ 0
-SSRX_DEMUX-
+SSTX-
 Text Label 3950 3200 0    50   ~ 0
-D_DEMUX+
+D_DC+
 Wire Wire Line
 	3850 7500 3550 7500
 Wire Wire Line
@@ -1660,31 +1556,24 @@ F 3 "" H 4050 6250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2300 850  2400 850 
+	2600 850  2700 850 
 $Comp
 L Device:Ferrite_Bead_Small FB1
 U 1 1 6122E4EF
-P 2200 850
-F 0 "FB1" V 2050 850 50  0000 C CNN
-F 1 "BLM18KG221SN1D" V 2350 1250 50  0000 C CNN
-F 2 "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2130 850 50  0001 C CNN
-F 3 "~" H 2200 850 50  0001 C CNN
-F 4 "Murata" V 2350 750 50  0000 C CNN "Brand"
-	1    2200 850 
+P 2500 850
+F 0 "FB1" V 2350 850 50  0000 C CNN
+F 1 "BLM18KG221SN1D" V 2650 1250 50  0000 C CNN
+F 2 "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2430 850 50  0001 C CNN
+F 3 "~" H 2500 850 50  0001 C CNN
+F 4 "Murata" V 2650 750 50  0000 C CNN "Brand"
+	1    2500 850 
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	1950 850  1950 1550
-Wire Wire Line
-	1950 800  1950 850 
-Connection ~ 1950 850 
-Wire Wire Line
-	2100 850  1950 850 
-Wire Wire Line
-	2700 850  2900 850 
-Text Notes 3500 750  0    50   ~ 10
+	3000 850  3200 850 
+Text Notes 3800 750  0    50   ~ 10
 Note 2:
-Text Notes 3100 1100 0    50   ~ 0
+Text Notes 3400 1100 0    50   ~ 0
 Cut JP2 to isolate USB\nconnector from global 5 V\nrail for debugging with\nexternal power.
 Wire Wire Line
 	4500 7500 4200 7500
@@ -1810,7 +1699,7 @@ F 3 "~" H 10850 4550 50  0001 C CNN
 	1    10850 4550
 	1    0    0    -1  
 $EndComp
-Text Notes 2000 1200 0    50   ~ 0
+Text Notes 2300 1200 0    50   ~ 0
 FB1 may resonate, see\n  capacitor C19, C20
 Wire Notes Line
 	11000 3650 10100 3650
@@ -1830,8 +1719,8 @@ Wire Wire Line
 	9000 1850 10200 1850
 Wire Wire Line
 	7850 1950 7850 3200
-Text Notes 8050 2100 0    50   ~ 0
-C1+C5+C7=73 nF
+Text Notes 8200 2100 0    50   ~ 0
+C1+C7=110nF
 Wire Wire Line
 	7750 1850 7750 3100
 Wire Wire Line
@@ -1908,8 +1797,6 @@ Wire Wire Line
 	10450 4300 10450 4400
 Wire Wire Line
 	10450 4000 10450 3900
-Wire Wire Line
-	3450 3600 5100 3600
 $Comp
 L Connector:Conn_01x08_Male J3
 U 1 1 613F2C9C
@@ -2191,4 +2078,203 @@ Wire Notes Line
 	700  600  700  1250
 Wire Notes Line
 	4300 600  4300 1250
+$Comp
+L Connector:USB3_B J2
+U 1 1 617F0239
+P 1000 2550
+F 0 "J2" H 1057 3267 50  0000 C CNN
+F 1 "USB3_B" H 1057 3176 50  0000 C CNN
+F 2 "vl670:USB3_B_XKB_U235-091N-4BLRC16-4-5" H 1150 2650 50  0001 C CNN
+F 3 "~" H 1150 2650 50  0001 C CNN
+	1    1000 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 2300 2850 2350
+$Comp
+L power:GND #PWR0107
+U 1 1 61CF7782
+P 2650 3800
+AR Path="/61CF7782" Ref="#PWR0107"  Part="1" 
+AR Path="/60085564/61CF7782" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0107" H 2650 3550 50  0001 C CNN
+F 1 "GND" H 2650 3650 50  0000 C CNN
+F 2 "" H 2650 3800 50  0001 C CNN
+F 3 "" H 2650 3800 50  0001 C CNN
+	1    2650 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L vl670:ESD7104 D4
+U 1 1 61CF7788
+P 2650 3450
+AR Path="/61CF7788" Ref="D4"  Part="1" 
+AR Path="/60085564/61CF7788" Ref="D?"  Part="1" 
+F 0 "D4" H 3100 3150 50  0000 L CNN
+F 1 "ESD7104" H 3000 3050 50  0000 L CNN
+F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 2650 3100 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 2650 3400 50  0001 C CNN
+	1    2650 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 3750 2650 3800
+$Comp
+L power:GND #PWR0108
+U 1 1 61D1AAB3
+P 2000 3800
+AR Path="/61D1AAB3" Ref="#PWR0108"  Part="1" 
+AR Path="/60085564/61D1AAB3" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0108" H 2000 3550 50  0001 C CNN
+F 1 "GND" H 2000 3650 50  0000 C CNN
+F 2 "" H 2000 3800 50  0001 C CNN
+F 3 "" H 2000 3800 50  0001 C CNN
+	1    2000 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 3750 2000 3800
+Wire Wire Line
+	900  3800 900  3350
+Wire Wire Line
+	800  3250 800  3350
+Wire Wire Line
+	800  3350 900  3350
+Connection ~ 900  3350
+Wire Wire Line
+	900  3350 900  3250
+Wire Wire Line
+	1000 3250 1000 3350
+Wire Wire Line
+	1000 3350 900  3350
+Text Label 1500 2950 0    50   ~ 0
+SSRX-
+Text Label 1500 3050 0    50   ~ 0
+SSRX+
+Wire Wire Line
+	2200 800  2200 850 
+Text Label 1500 2350 0    50   ~ 0
+D-
+Text Label 1500 2450 0    50   ~ 0
+D+
+Wire Wire Line
+	3450 3600 3450 3100
+Wire Wire Line
+	3550 2900 3550 3500
+Wire Wire Line
+	3750 2650 3750 3300
+Wire Wire Line
+	3650 2750 3650 3400
+Wire Wire Line
+	3150 3100 3100 3100
+Wire Wire Line
+	3150 2900 3100 2900
+Wire Wire Line
+	3550 2900 3350 2900
+Wire Wire Line
+	3450 3100 3350 3100
+$Comp
+L Device:C_Small C1
+U 1 1 6188E9E7
+P 3250 2900
+AR Path="/6188E9E7" Ref="C1"  Part="1" 
+AR Path="/60085564/6188E9E7" Ref="C?"  Part="1" 
+F 0 "C1" V 3200 2750 50  0000 C CNN
+F 1 "220nF" V 3200 3050 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 3250 2900 50  0001 C CNN
+F 3 "~" H 3250 2900 50  0001 C CNN
+	1    3250 2900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C_Small C2
+U 1 1 6188E9E1
+P 3250 3100
+AR Path="/6188E9E1" Ref="C2"  Part="1" 
+AR Path="/60085564/6188E9E1" Ref="C?"  Part="1" 
+F 0 "C2" V 3200 2950 50  0000 C CNN
+F 1 "220nF" V 3200 3250 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 3250 3100 50  0001 C CNN
+F 3 "~" H 3250 3100 50  0001 C CNN
+	1    3250 3100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3000 2950 3100 2900
+Wire Wire Line
+	3000 3050 3100 3100
+Wire Wire Line
+	3550 3500 5250 3500
+Wire Wire Line
+	3450 3600 5250 3600
+$Comp
+L vl670:ESD7104 D1
+U 1 1 619DB924
+P 2000 3450
+AR Path="/619DB924" Ref="D1"  Part="1" 
+AR Path="/60085564/619DB924" Ref="D?"  Part="1" 
+F 0 "D1" H 1500 3150 50  0000 L CNN
+F 1 "ESD7104" H 1400 3050 50  0000 L CNN
+F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 2000 3100 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 2000 3400 50  0001 C CNN
+	1    2000 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 3150 2100 2150
+Wire Wire Line
+	1900 3150 1900 2350
+Wire Wire Line
+	1800 3150 1800 2450
+Wire Wire Line
+	2550 3150 2550 2650
+Wire Wire Line
+	2450 3150 2450 2750
+Wire Wire Line
+	2850 3150 2850 2950
+Wire Wire Line
+	2750 3150 2750 3050
+Connection ~ 2100 2150
+Connection ~ 1800 2450
+Wire Wire Line
+	1800 2450 3100 2450
+Connection ~ 1900 2350
+Wire Wire Line
+	1900 2350 2850 2350
+Connection ~ 2450 2750
+Wire Wire Line
+	2450 2750 3650 2750
+Connection ~ 2550 2650
+Wire Wire Line
+	2550 2650 3750 2650
+Connection ~ 2750 3050
+Wire Wire Line
+	2750 3050 3000 3050
+Connection ~ 2850 2950
+Wire Wire Line
+	2850 2950 3000 2950
+Wire Wire Line
+	1500 2950 2850 2950
+Wire Wire Line
+	1500 3050 2750 3050
+Wire Wire Line
+	1500 2650 2550 2650
+Wire Wire Line
+	1500 2750 2450 2750
+Wire Wire Line
+	1500 2450 1800 2450
+Wire Wire Line
+	1500 2350 1900 2350
+Wire Wire Line
+	1500 2150 2100 2150
+Connection ~ 2200 850 
+Wire Wire Line
+	2200 850  2400 850 
+Wire Wire Line
+	2200 850  2200 2150
+Wire Wire Line
+	2100 2150 2200 2150
+Connection ~ 2200 2150
+Wire Wire Line
+	2200 2150 2200 3150
 $EndSCHEMATC

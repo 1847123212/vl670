@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 4
+Sheet 4 4
 Title "USB-C Schematic - VL670/671 Development Board"
 Date "2021-10-26"
 Rev "v0.02"
@@ -35,62 +35,6 @@ Text HLabel 1250 4400 0    79   Input ~ 0
 TX2-
 Text HLabel 1250 4600 0    79   Input ~ 0
 TX2+
-$Comp
-L power:GND #PWR?
-U 1 1 604F285B
-P 2950 5550
-AR Path="/604F285B" Ref="#PWR?"  Part="1" 
-AR Path="/60085564/604F285B" Ref="#PWR0108"  Part="1" 
-F 0 "#PWR0108" H 2950 5300 50  0001 C CNN
-F 1 "GND" H 2950 5400 50  0000 C CNN
-F 2 "" H 2950 5550 50  0001 C CNN
-F 3 "" H 2950 5550 50  0001 C CNN
-	1    2950 5550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2950 5500 2950 5550
-$Comp
-L vl670:ESD7104 D?
-U 1 1 604F2862
-P 2950 5200
-AR Path="/604F2862" Ref="D?"  Part="1" 
-AR Path="/60085564/604F2862" Ref="D1"  Part="1" 
-F 0 "D1" H 3200 4800 50  0000 L CNN
-F 1 "ESD7104" H 3100 4700 50  0000 L CNN
-F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 2950 4850 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 2950 5150 50  0001 C CNN
-	1    2950 5200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 60535E89
-P 3950 5550
-AR Path="/60535E89" Ref="#PWR?"  Part="1" 
-AR Path="/60085564/60535E89" Ref="#PWR0120"  Part="1" 
-F 0 "#PWR0120" H 3950 5300 50  0001 C CNN
-F 1 "GND" H 3950 5400 50  0000 C CNN
-F 2 "" H 3950 5550 50  0001 C CNN
-F 3 "" H 3950 5550 50  0001 C CNN
-	1    3950 5550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3950 5500 3950 5550
-$Comp
-L vl670:ESD7104 D?
-U 1 1 60535F6E
-P 3950 5200
-AR Path="/60535F6E" Ref="D?"  Part="1" 
-AR Path="/60085564/60535F6E" Ref="D4"  Part="1" 
-F 0 "D4" H 4200 4800 50  0000 L CNN
-F 1 "ESD7104" H 4100 4700 50  0000 L CNN
-F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 3950 4850 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 3950 5150 50  0001 C CNN
-	1    3950 5200
-	1    0    0    -1  
-$EndComp
 Text HLabel 1250 3400 0    79   Input ~ 0
 RX1+
 Wire Wire Line
@@ -231,34 +175,6 @@ Wire Wire Line
 	6450 1900 6450 2100
 NoConn ~ 7200 5200
 NoConn ~ 7200 4800
-$Comp
-L vl670:ESD7104 D?
-U 1 1 5FFD97ED
-P 1950 5200
-AR Path="/5FFD97ED" Ref="D?"  Part="1" 
-AR Path="/60085564/5FFD97ED" Ref="D5"  Part="1" 
-F 0 "D5" H 2200 4800 50  0000 L CNN
-F 1 "ESD7104" H 2100 4700 50  0000 L CNN
-F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 1950 4850 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 1950 5150 50  0001 C CNN
-	1    1950 5200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 6000EE66
-P 1950 5550
-AR Path="/6000EE66" Ref="#PWR?"  Part="1" 
-AR Path="/60085564/6000EE66" Ref="#PWR0107"  Part="1" 
-F 0 "#PWR0107" H 1950 5300 50  0001 C CNN
-F 1 "GND" H 1950 5400 50  0000 C CNN
-F 2 "" H 1950 5550 50  0001 C CNN
-F 3 "" H 1950 5550 50  0001 C CNN
-	1    1950 5550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1950 5500 1950 5550
 Wire Wire Line
 	3900 2600 3900 1300
 Wire Wire Line
@@ -276,20 +192,6 @@ Wire Wire Line
 Wire Wire Line
 	5450 4000 5800 4250
 Wire Wire Line
-	1750 4900 1750 2800
-Wire Wire Line
-	1850 4900 1850 3000
-Wire Wire Line
-	1750 2800 5450 2800
-Wire Wire Line
-	1850 3000 5450 3000
-Wire Wire Line
-	2050 4900 2050 2600
-Wire Wire Line
-	2150 4900 2150 2400
-Wire Wire Line
-	2150 2400 3750 2400
-Wire Wire Line
 	6500 5800 6500 5950
 Wire Wire Line
 	6600 5950 6600 5800
@@ -299,80 +201,6 @@ Wire Wire Line
 	6400 5950 6400 5800
 Wire Wire Line
 	6400 5950 6500 5950
-$Comp
-L power:+3V3 #PWR0157
-U 1 1 5FE7241C
-P 8000 1900
-F 0 "#PWR0157" H 8000 1750 50  0001 C CNN
-F 1 "+3V3" H 8015 2073 50  0000 C CNN
-F 2 "" H 8000 1900 50  0001 C CNN
-F 3 "" H 8000 1900 50  0001 C CNN
-	1    8000 1900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C25
-U 1 1 5FE72F82
-P 8000 2200
-F 0 "C25" H 8115 2246 50  0000 L CNN
-F 1 "470nF" H 8115 2155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 8038 2050 50  0001 C CNN
-F 3 "~" H 8000 2200 50  0001 C CNN
-	1    8000 2200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8000 1900 8000 2050
-$Comp
-L power:GND #PWR0158
-U 1 1 5FE75843
-P 8000 2550
-F 0 "#PWR0158" H 8000 2300 50  0001 C CNN
-F 1 "GND" H 8005 2377 50  0000 C CNN
-F 2 "" H 8000 2550 50  0001 C CNN
-F 3 "" H 8000 2550 50  0001 C CNN
-	1    8000 2550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8000 2350 8000 2550
-$Comp
-L Device:C C12
-U 1 1 5FE7CBDA
-P 7550 2200
-F 0 "C12" H 7665 2246 50  0000 L CNN
-F 1 "1uF" H 7665 2155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 7588 2050 50  0001 C CNN
-F 3 "~" H 7550 2200 50  0001 C CNN
-	1    7550 2200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7550 1900 7550 2050
-$Comp
-L power:GND #PWR0159
-U 1 1 5FE7CBE5
-P 7550 2550
-F 0 "#PWR0159" H 7550 2300 50  0001 C CNN
-F 1 "GND" H 7555 2377 50  0000 C CNN
-F 2 "" H 7550 2550 50  0001 C CNN
-F 3 "" H 7550 2550 50  0001 C CNN
-	1    7550 2550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7550 2350 7550 2550
-$Comp
-L power:+5V #PWR0160
-U 1 1 5FE9090F
-P 7550 1900
-F 0 "#PWR0160" H 7550 1750 50  0001 C CNN
-F 1 "+5V" H 7565 2073 50  0000 C CNN
-F 2 "" H 7550 1900 50  0001 C CNN
-F 3 "" H 7550 1900 50  0001 C CNN
-	1    7550 1900
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:+3V3 #PWR0153
 U 1 1 60A4C061
@@ -464,8 +292,6 @@ Wire Wire Line
 	3750 1050 8500 1050
 Wire Wire Line
 	3900 1300 8500 1300
-Wire Wire Line
-	2050 2600 3900 2600
 $Comp
 L Device:C_Small C?
 U 1 1 60EF5296
@@ -485,18 +311,6 @@ Connection ~ 3850 3800
 Wire Wire Line
 	1250 3600 3750 3600
 Connection ~ 3750 3600
-Wire Wire Line
-	1250 3000 1850 3000
-Connection ~ 1850 3000
-Wire Wire Line
-	1750 2800 1250 2800
-Connection ~ 1750 2800
-Wire Wire Line
-	1250 2600 2050 2600
-Connection ~ 2050 2600
-Wire Wire Line
-	2150 2400 1250 2400
-Connection ~ 2150 2400
 $Comp
 L Device:R_US R18
 U 1 1 60BFA35D
@@ -543,38 +357,10 @@ Wire Wire Line
 	4050 4900 4050 4400
 Wire Wire Line
 	4150 4900 4150 4600
-Wire Wire Line
-	1250 4000 3150 4000
-Wire Wire Line
-	1250 4200 3050 4200
-Wire Wire Line
-	3050 4900 3050 4200
-Connection ~ 3050 4200
-Wire Wire Line
-	3050 4200 4750 4200
-Wire Wire Line
-	3150 4900 3150 4000
-Connection ~ 3150 4000
-Wire Wire Line
-	3150 4000 4750 4000
 Text Label 7250 4200 0    50   ~ 0
 TX_MUX_DC-
 Text Label 7250 4400 0    50   ~ 0
 TX_MUX_DC+
-Wire Wire Line
-	2850 3200 5450 3200
-Connection ~ 2850 3200
-Wire Wire Line
-	2850 4900 2850 3200
-Wire Wire Line
-	2750 4900 2750 3400
-Wire Wire Line
-	2750 3400 5450 3400
-Wire Wire Line
-	1250 3400 2750 3400
-Connection ~ 2750 3400
-Wire Wire Line
-	1250 3200 2850 3200
 Wire Wire Line
 	5450 3400 5800 3350
 Wire Wire Line
@@ -604,32 +390,6 @@ F 1 "220nF" V 4800 4750 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 4850 4600 50  0001 C CNN
 F 3 "~" H 4850 4600 50  0001 C CNN
 	1    4850 4600
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C_Small C?
-U 1 1 60EF52A2
-P 4850 4200
-AR Path="/60EF52A2" Ref="C?"  Part="1" 
-AR Path="/60085564/60EF52A2" Ref="C2"  Part="1" 
-F 0 "C2" V 4800 4050 50  0000 C CNN
-F 1 "220nF" V 4800 4350 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 4850 4200 50  0001 C CNN
-F 3 "~" H 4850 4200 50  0001 C CNN
-	1    4850 4200
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C_Small C?
-U 1 1 60EF529C
-P 4850 4000
-AR Path="/60EF529C" Ref="C?"  Part="1" 
-AR Path="/60085564/60EF529C" Ref="C1"  Part="1" 
-F 0 "C1" V 4800 3850 50  0000 C CNN
-F 1 "220nF" V 4800 4150 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 4850 4000 50  0001 C CNN
-F 3 "~" H 4850 4000 50  0001 C CNN
-	1    4850 4000
 	0    1    1    0   
 $EndComp
 Wire Wire Line
@@ -679,4 +439,68 @@ Wire Notes Line
 	9050 2650 10800 2650
 Wire Notes Line
 	9050 5500 10800 5500
+Wire Wire Line
+	2150 2400 1250 2400
+Wire Wire Line
+	2150 2400 3750 2400
+Connection ~ 2150 2400
+Wire Wire Line
+	2150 4900 2150 2400
+Wire Wire Line
+	1250 2600 2050 2600
+Wire Wire Line
+	2050 2600 3900 2600
+Connection ~ 2050 2600
+Wire Wire Line
+	2050 4900 2050 2600
+Wire Wire Line
+	1250 3000 1850 3000
+Wire Wire Line
+	1850 3000 5450 3000
+Connection ~ 1850 3000
+Wire Wire Line
+	1850 4900 1850 3000
+Wire Wire Line
+	1750 2800 1250 2800
+Wire Wire Line
+	1750 2800 5450 2800
+Connection ~ 1750 2800
+Wire Wire Line
+	1750 4900 1750 2800
+Wire Wire Line
+	1950 5500 1950 5550
+$Comp
+L power:GND #PWR?
+U 1 1 6000EE66
+P 1950 5550
+AR Path="/6000EE66" Ref="#PWR?"  Part="1" 
+AR Path="/60085564/6000EE66" Ref="#PWR0107"  Part="1" 
+F 0 "#PWR0107" H 1950 5300 50  0001 C CNN
+F 1 "GND" H 1950 5400 50  0000 C CNN
+F 2 "" H 1950 5550 50  0001 C CNN
+F 3 "" H 1950 5550 50  0001 C CNN
+	1    1950 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L vl670:ESD7104 D?
+U 1 1 5FFD97ED
+P 1950 5200
+AR Path="/5FFD97ED" Ref="D?"  Part="1" 
+AR Path="/60085564/5FFD97ED" Ref="D5"  Part="1" 
+F 0 "D5" H 2200 4800 50  0000 L CNN
+F 1 "ESD7104" H 2100 4700 50  0000 L CNN
+F 2 "vl670:OnSemi_UDFN-10_1.0x2.5mm_P0.5mm" H 1950 4850 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/ESD7104-D.PDF" V 1950 5150 50  0001 C CNN
+	1    1950 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1250 4200 4750 4200
+Wire Wire Line
+	1250 4000 4750 4000
+Wire Wire Line
+	1250 3200 5450 3200
+Wire Wire Line
+	1250 3400 5450 3400
 $EndSCHEMATC
