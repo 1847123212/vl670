@@ -271,9 +271,8 @@ needs, fixing bugs in the firmware, and understanding the behavior of the hardwa
 better.
 
 But before you start, note that VL670 is already obsolete, its internal
-microcontroller also uses an unknown custom architecture, I suspect it's
-Xtensa. Its replacement, VL671, uses a different microcontroller (ARM Cortex M3)
-and a different firmware.
+microcontroller uses an Xtensa core. Its replacement, VL671, uses a different
+core (ARM Cortex M3) and a different firmware.
 
 I suggest leaving the proprietary VL670 firmware as-is since its architecture
 is less known and the chip is already obsolete. Instead, work on the VL671

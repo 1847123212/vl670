@@ -660,13 +660,13 @@ $EndComp
 $Comp
 L Device:R_US R1
 U 1 1 6027A505
-P 3250 2300
-F 0 "R1" V 3200 2150 50  0000 C CNN
-F 1 "0R" V 3200 2450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 3290 2290 50  0001 C CNN
-F 3 "~" H 3250 2300 50  0001 C CNN
-F 4 "NC" V 3200 2650 50  0000 C CNN "Install"
-	1    3250 2300
+P 3250 2350
+F 0 "R1" V 3200 2200 50  0000 C CNN
+F 1 "0R" V 3200 2500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 3290 2340 50  0001 C CNN
+F 3 "~" H 3250 2350 50  0001 C CNN
+F 4 "NC" V 3200 2700 50  0000 C CNN "Install"
+	1    3250 2350
 	0    1    1    0   
 $EndComp
 $Comp
@@ -685,15 +685,9 @@ Wire Wire Line
 Wire Wire Line
 	3850 3200 5250 3200
 Wire Wire Line
-	3950 2300 3950 3100
-Wire Wire Line
 	3950 3100 5250 3100
 Wire Wire Line
-	3000 2300 3100 2300
-Wire Wire Line
 	3400 2450 3850 2450
-Wire Wire Line
-	3400 2300 3950 2300
 Text Label 3950 3500 0    50   ~ 0
 SSTX_DC-
 Text Label 3950 3600 0    50   ~ 0
@@ -986,10 +980,6 @@ Connection ~ 1150 750
 Wire Wire Line
 	950  1050 1150 1050
 Connection ~ 1150 1050
-Wire Notes Line
-	700  600  4300 600 
-Wire Notes Line
-	700  1250 4300 1250
 Wire Wire Line
 	6500 1900 6500 1800
 Wire Wire Line
@@ -1567,9 +1557,9 @@ F 4 "Murata" V 2650 750 50  0000 C CNN "Brand"
 $EndComp
 Wire Wire Line
 	3000 850  3200 850 
-Text Notes 3800 750  0    50   ~ 10
+Text Notes 3700 800  0    50   ~ 10
 Note 2:
-Text Notes 3400 1100 0    50   ~ 0
+Text Notes 3400 1150 0    50   ~ 0
 Cut JP2 to isolate USB\nconnector from global 5 V\nrail for debugging with\nexternal power.
 Wire Wire Line
 	4500 7500 4200 7500
@@ -2073,9 +2063,7 @@ Wire Wire Line
 Wire Notes Line
 	700  600  700  1250
 Wire Notes Line
-	4300 600  4300 1250
-Wire Wire Line
-	3000 2300 2850 2350
+	4500 600  4500 1250
 $Comp
 L power:GND #PWR0107
 U 1 1 61CF7782
@@ -2213,8 +2201,6 @@ Wire Wire Line
 	1800 2450 3100 2450
 Connection ~ 1900 2350
 Wire Wire Line
-	1900 2350 2850 2350
-Wire Wire Line
 	1500 2450 1800 2450
 Wire Wire Line
 	1500 2350 1900 2350
@@ -2285,4 +2271,14 @@ Wire Wire Line
 	5100 3300 5250 3400
 Wire Wire Line
 	5100 3400 5250 3300
+Wire Notes Line
+	700  1250 4500 1250
+Wire Notes Line
+	700  600  4500 600 
+Wire Wire Line
+	1900 2350 3100 2350
+Wire Wire Line
+	3400 2350 3950 2350
+Wire Wire Line
+	3950 2350 3950 3100
 $EndSCHEMATC
