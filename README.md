@@ -3,7 +3,11 @@ VL670/VL671 Development Board - USB 2.0 to 3.0 Transaction Translator
 
 ### Revision
 
-This is version v0.02.
+This is version v0.02b (git branch usb-b), which removes the USB Type-C
+connector due to chip shortage.
+
+The v0.02 design with the original USB Type-C connector is
+[here](https://notabug.org/niconiconi/vl670/src/main)
 
 The original v0.01 design is obsolete, but it's still
 [available here](https://notabug.org/niconiconi/vl670/src/v0.01).
@@ -284,11 +288,11 @@ firmware instead.
 
 The heart of the development board is the VL67x controller (`U2`). It has two USB
 interfaces on both sides of the chip. The left side is the host side, connnected
-to a computer via a USB 3.0 Type-C port (`J2`), the right side is connected to
+to a computer via a USB 3.0 Type-B port (`J2`), the right side is connected to
 the device side, via a USB 3.0 Type-A port. All the transaction translation
 magic is performed internally by VL67x.
 
-When a USB Type-C cable is plugged into the development board, 5 V power is
+When a USB Type-B cable is plugged into the development board, 5 V power is
 applied to the board by the host, the decoupling capacitors on the 5 V rail
 starts charging up. Shortly after the 5 V rail settles, the internal power
 converters inside the VL67x controller (`U2`) are activated. They are a 3.3 V
@@ -301,13 +305,8 @@ state, timed by the RC circuit `R4` and `C13`, and the processor core inside
 VL67x starts operating. VL67x fetches firmware code from the Flash chip GD25D05
 (`U6`) via the SPI bus.
 
-Meanwhile, back to USB (`J2`), at the host side, the incoming 3.0 signal lines from
-the Type-C cable is demultiplexed by the USB Type-C controller HD3SS3220 (`U1`)
-by selecting the correct signal pairs based on the orientation of the Type-C
-plug. It occurs almost as soon as the USB cable is plugged in. On the other hand,
-the USB 2 signals are shorted together and don't require active demultiplexing.
 At this point, VL67x gains access to both USB 3.0 and USB 2.0 signals at the
-host side.
+host side, from the USB Type-B connector.
 
 Strictly speaking, only the USB 3.0 signals are required since VL67x is a
 transaction translator that converts all USB 2.0 traffic to USB 3.0 transparently.
@@ -340,47 +339,11 @@ itself is invisible to the host, only the device is.
 mode for all USB 2.0 or USB 3.0 devices, without translation. The host should
 detect a USB 2.0 device. This mode is also entered if the USB 3.0 at the host
 side has failed. A defective cable is a common cause, but inserting the USB
-Type-C cable extremely slowly has the same effect. Removing `R1` and `R2` to
-disable USB 2.0 at the host completely can avoid this confusing situation.
+cable extremely slowly has the same effect. Removing `R1` and `R2` to disable
+USB 2.0 at the host completely can avoid this confusing situation.
 
 * If both the host and device support USB 3.0, VL67x enters passthrough mode
 without translation.
-
-#### USB Type-C and HD3SS3220
-
-For developer's convenience, the USB host side uses a USB 3.0 Type-C connector
-instead of a bulky and uncommon USB 3.0 Type-B or Micro-USB connector.
-
-A USB 3.0 Type-C connector is reversible, thus it has two possible connections:
-either `D1+`, `D1-`, `TX1+`, `TX1-`, `RX1+`, `RX1-` are connected, or `D2+`, `D2-`,
-`TX2+`, `TX2-`, `RX2+`, `RX2-` are connected. USB 2.0 operates at a slower
-frequency, thus `D1+/-` and `D2+/-` pairs are simply shorted together, allowing
-a connection regardless of the plug orientation.
-
-On the other hand, this is unacceptable for USB 3.0 - the extra length of an
-open-ended wiring creates a quarter-wave stub, which is detrimental to signal
-integrity. Instead of passively connecting them together, an active electronic
-switch, known as an demultiplexer, should be used to select one out of two
-pairs.
-
-The solution is HD3SS3220 (`U1`), it's a USB-C controller with built-in
-switches. It automatically selects the correct differential pair, either `TX1+`,
-`TX1-`, `RX1+`, `RX1-` or `TX2+`, `TX2-`, `RX2+`, `RX2-`, based on the
-orientation of the Type-C plug as soon as a Type-C cable is plugged in.
-The demultiplexed signal is simply called `TX+`, `TX-`, `RX+`, `RX-`,
-just like the signal coming out from a traditional USB 3.0 Type-B connector.
-
-##### DC Biasing
-
-The `TX-` and `TX+` pins on the HD3SS3220 can only tolerate a common-mode
-DC voltage below 2 V. But VL67x's common-mode DC voltage at SSTX is 2.2 V. Two
-extra capacitors, C5 and C6 are needed in this particular design to prevent
-VL67x's DC bias from reaching HD3SS3220.
-
-Simultaneously, HD3SS3220 won't work without a DC bias at the `TX-` and `TX+`
-pins. Thus, R16 and R17 are needed to reestablish a DC operating point. 0 V
-is acceptable, thus both are pulled down to GND. The resistors are unnecessary
-without HD3SS3220.
 
 #### SPI Debugging and Programming
 
@@ -400,7 +363,7 @@ signal of VL67x to halt the processor.
 #### External Power
 
 A power pin header (`J5`) is provided. However, it should never be used to power
-the development board when the USB Type-C port is plugged in, otherwise a short
+the development board when the USB Type-B port is plugged in, otherwise a short
 circuit may occur. If debugging the board with external power is desirable, cut
 the trace at PCB jumper `JP2` with a knife.
 
@@ -408,7 +371,7 @@ The jumper is located at the back side of the board. There are two jumpers, so
 make sure you're cutting `JP2`. Use a multimeter to confirm the connection is
 truly broken.
 
-Once `JP2` is cut, the USB Type-C port no longer provides power to the
+Once `JP2` is cut, the USB Type-B port no longer provides power to the
 development board. Signals and ground connections remain.
 
 #### Oddities
