@@ -204,13 +204,13 @@ as a SuperSpeed device.
 
 ### Schematics
 
-* [PDF schematics](https://notabug.org/niconiconi/vl670/raw/main/schematics/vl670-schematics.pdf)
+* [PDF schematics](https://notabug.org/niconiconi/vl670/raw/usb-b/schematics/vl670-schematics.pdf)
 
-* [PDF layout](https://notabug.org/niconiconi/vl670/raw/main/schematics/vl670-layout.pdf)
+* [PDF layout](https://notabug.org/niconiconi/vl670/raw/usb-b/schematics/vl670-layout.pdf)
 
 ### BOM
 
-* [Bill of Material](https://notabug.org/niconiconi/vl670/src/main/bom)
+* [Bill of Material](https://notabug.org/niconiconi/vl670/src/usb-b/bom)
 
 ### Datasheets
 
