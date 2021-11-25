@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 3 3
 Title "PCB-specific Schematic - VL670/671 Development Board"
 Date "2021-10-26"
-Rev "v0.02"
+Rev "v0.02b"
 Comp "Copyright (C) 2021 Tom Li (niconiconi)"
 Comment1 "https://creativecommons.org/publicdomain/zero/1.0/"
 Comment2 "the designer has waived all copyright and related or neighboring rights."
