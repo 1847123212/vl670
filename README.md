@@ -196,11 +196,11 @@ as a SuperSpeed device.
     * USB Attached SCSI (UAS) doesn't work in transaction translator mode.
     But it can be disabled at the device driver of the operating system.
 
-### Images
+### Photos
 
 #### Front and Back of the PCB
 
-![Front and Back of the PCB](https://notabug.org/niconiconi/vl670/raw/main/photos/pcb_render.png)
+![Front and Back of the PCB](https://notabug.org/niconiconi/vl670/raw/usb-b/photos/pcb.jpg)
 
 ### Schematics
 
